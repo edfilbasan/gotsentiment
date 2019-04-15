@@ -3,7 +3,7 @@ import Card from "./Card.js";
 
 const list = {
   display: "grid",
-  justifyContent: "space-evenly",
+  justifyItems: "center",
   gridTemplateColumns: "1fr 1fr 1fr",
   gridTemplateRows: "auto",
   columnGap: "20px",
@@ -11,9 +11,9 @@ const list = {
 };
 
 let characters = {
-  Jon: ["DATA", "./jonHappy.gif", "./jonNeutral.gif", "./jonSad.gif"],
-  Daenerys: ["DATA", "./danyHappy.gif", "./danyNeutral.gif", "./danySad.gif"],
-  Cersei: ["DATA", "cerseiHappy.gif", "./cerseiNeutral.gif", "./cerseiSad.gif"]
+  Jon: ["HAPPY", "./jonHappy.gif", "./jonNeutral.gif", "./jonSad.gif"],
+  Daenerys: ["SAD", "./danyHappy.gif", "./danyNeutral.gif", "./danySad.gif"],
+  Cersei: ["HAPPY", "cerseiHappy.gif", "./cerseiNeutral.gif", "./cerseiSad.gif"]
 };
 
 // function Sentiment({ data, state }) {
@@ -31,17 +31,19 @@ let characters = {
 
 const CardList = () => {
   return (
-    <div style={list}>
-      {Object.keys(characters).map((key, i) => {
-        return (
-          <Card
-            key={i}
-            name={key}
-            sentiment={Object.values(characters)[i][0]}
-            image={Object.values(characters)[i][3]}
-          />
-        );
-      })}
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={list}>
+        {Object.keys(characters).map((key, i) => {
+          return (
+            <Card
+              key={i}
+              name={key}
+              sentiment={Object.values(characters)[i][0]}
+              image={Object.values(characters)[i][1]}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
