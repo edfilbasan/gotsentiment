@@ -1,0 +1,58 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  background-image: url("./styles/images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 56px;
+  color: white;
+  margin-top: 52px;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 36px;
+  color: white;
+  margin: 0px 0px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-items: flex-start;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.nameTitle {
+  color: #243542
+}
+
+.sentimentSad {
+  /* font-family: TrajanPro; */
+  margin-top: 12px;
+  font-size: 75px;
+  color: #9C1212;
+  text-align: left;
+}
+
+.sentimentNeutral {
+  /* font-family: TrajanPro; */
+  margin-top: 12px;
+  font-size: 75px;
+  color: #974722;
+  text-align: left;
+}
+
+.sentimentHappy {
+  /* font-family: TrajanPro-Regular; */
+  margin-top: 12px;
+  font-size: 75px;
+  color: #2C771B;
+  text-align: left;
+}
