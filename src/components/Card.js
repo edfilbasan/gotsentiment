@@ -26,7 +26,6 @@ const Card = props => {
         boxShadow: "0px 5px 10px rgba(0, 0, 0, .5)"
       }}
     >
-      {console.log(typeof props.image)}
       <img alt="fuck source" src={props.image} style={images} />
       <section style={titles}>
         <h2 className="nameTitle">{props.name}</h2>

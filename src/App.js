@@ -8,7 +8,7 @@ class GotSentiment extends Component {
       <div>
         <div className="header">
           <h1>Game of Thrones</h1>
-          <h2>S8E1 Sentiment Analysis</h2>
+          <h2>S8E1 Twitter Feels Chart</h2>
         </div>
         <CardList />
       </div>

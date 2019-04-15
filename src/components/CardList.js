@@ -8,11 +8,24 @@ const displays = {
   margin: "0px 20px"
 };
 
-const characters = {
-  Jon: ["somedata", "./jonHappy.gif"],
-  Daenerys: ["somedata", "./danyHappy.jpg"],
-  Cersei: ["somedata", "cerseiHappy.gif"]
+let characters = {
+  Jon: ["DATA", "./jonHappy.gif", "./jonNeutral.jpeg", "./jonSad.gif"],
+  Daenerys: ["DATA", "./danyHappy.jpg", "./danyNeutral.jpg", "./danySad.png"],
+  Cersei: ["DATA", "cerseiHappy.gif", "./cerseiNeutral.jpg", "./cerseiSad.jpg"]
 };
+
+// function Sentiment({ data, state }) {
+//   switch (state) {
+//     case "HAPPY":
+//       return <Info text={text} />;
+//     case "NEUTRAL":
+//       return <Warning text={text} />;
+//     case "SAD":
+//       return <Error text={text} />;
+//     default:
+//       return aasd;
+//   }
+// }
 
 const CardList = props => {
   return (

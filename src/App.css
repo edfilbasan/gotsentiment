@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "Game of Thrones";
+  src: url("./styles/Game\ of\ Thrones.ttf") format("ttf"),
+}
+
+@font-face {
+  font-family: "Trajan Pro Regular";
+  src: url("./styles/Trajan\ Pro\ Regular.ttf") format("ttf"),
+}
+
+
 body {
   margin: 0px;
   padding: 0px;
@@ -8,6 +19,7 @@ body {
 }
 
 h1 {
+  font-family: "Game of Thrones";
   font-size: 56px;
   color: white;
   margin-top: 52px;
@@ -15,6 +27,7 @@ h1 {
 }
 
 h2 {
+  font-family: "Trajan Pro Regular";
   font-size: 36px;
   color: white;
   margin: 0px 0px;
