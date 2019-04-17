@@ -17,3 +17,11 @@ class GotSentiment extends Component {
 }
 
 export default GotSentiment;
+
+//TO DO WILL ADD A SEARCH BOX SO PEOPLE CAN FIND THEIR CHARACTERS
+// -----
+// onSearchChange = event => {
+//   this.setState({
+//     searchField: event.target.value
+//   });
+// };
