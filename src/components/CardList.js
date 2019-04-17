@@ -20,6 +20,8 @@ let characters = {
   ]
 };
 
+// WHATEVER FUNCTION YOU WRITE TO RECEIVE, SEND IT TO *SENTIMENT* IN THE CARD COMPONENT
+
 const CardList = () => {
   return (
     <div style={list}>
