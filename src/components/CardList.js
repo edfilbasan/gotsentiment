@@ -2,12 +2,11 @@ import React from "react";
 import Card from "./Card.js";
 
 const list = {
-  display: "grid",
-  justifyItems: "center",
-  gridTemplateColumns: "1fr 1fr 1fr",
-  gridTemplateRows: "auto",
-  columnGap: "20px",
-  width: "95%"
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  width: "100%",
+  justifyContent: "center"
 };
 
 let characters = {
@@ -31,19 +30,17 @@ let characters = {
 
 const CardList = () => {
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <div style={list}>
-        {Object.keys(characters).map((key, i) => {
-          return (
-            <Card
-              key={i}
-              name={key}
-              sentiment={Object.values(characters)[i][0]}
-              image={Object.values(characters)[i][1]}
-            />
-          );
-        })}
-      </div>
+    <div style={list}>
+      {Object.keys(characters).map((key, i) => {
+        return (
+          <Card
+            key={i}
+            name={key}
+            sentiment={Object.values(characters)[i][0]}
+            image={Object.values(characters)[i][1]}
+          />
+        );
+      })}
     </div>
   );
 };
