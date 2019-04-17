@@ -12,21 +12,13 @@ const list = {
 let characters = {
   Jon: ["HAPPY", "./jonHappy.gif", "./jonNeutral.gif", "./jonSad.gif"],
   Daenerys: ["SAD", "./danyHappy.gif", "./danyNeutral.gif", "./danySad.gif"],
-  Cersei: ["HAPPY", "cerseiHappy.gif", "./cerseiNeutral.gif", "./cerseiSad.gif"]
+  Cersei: [
+    "NEUTRAL",
+    "cerseiHappy.gif",
+    "./cerseiNeutral.gif",
+    "./cerseiSad.gif"
+  ]
 };
-
-// function Sentiment({ data, state }) {
-//   switch (state) {
-//     case "HAPPY":
-//       return <Info text={text} />;
-//     case "NEUTRAL":
-//       return <Warning text={text} />;
-//     case "SAD":
-//       return <Error text={text} />;
-//     default:
-//       return aasd;
-//   }
-// }
 
 const CardList = () => {
   return (

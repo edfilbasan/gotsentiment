@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 const container = {
   display: "flex",
@@ -26,16 +26,33 @@ const titles = {
   alignItems: "center"
 };
 
-const Card = props => {
-  return (
-    <div style={container}>
-      <img alt="GOT" src={props.image} style={images} />
-      <div style={titles}>
-        <h2 className="nameTitle">{props.name}</h2>
-        <h1 className="sentimentHappy">{props.sentiment}</h1>
+class Card extends Component {
+  sentiment = a => {
+    switch (a) {
+      case "HAPPY":
+        return "sentimentHappy";
+      case "NEUTRAL":
+        return "sentimentNeutral";
+      case "SAD":
+        return "sentimentSad";
+      default:
+        return "sentimentNeutral";
+    }
+  };
+
+  render() {
+    return (
+      <div style={container}>
+        <img alt="GOT" src={this.props.image} style={images} />
+        <div style={titles}>
+          <h2 className="nameTitle">{this.props.name}</h2>
+          <h1 className={this.sentiment(this.props.sentiment)}>
+            {this.props.sentiment}
+          </h1>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Card;
