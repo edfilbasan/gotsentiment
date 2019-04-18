@@ -1,35 +1,30 @@
 import React from "react";
 import Card from "./Card.js";
 
-const displays = {
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr 1fr",
-  columnGap: "1%",
-  margin: "0px 20px"
+const list = {
+  display: "flex",
+  flexDirection: "row",
+  flexWrap: "wrap",
+  width: "100%",
+  justifyContent: "center"
 };
 
 let characters = {
-  Jon: ["DATA", "./jonHappy.gif", "./jonNeutral.jpeg", "./jonSad.gif"],
-  Daenerys: ["DATA", "./danyHappy.jpg", "./danyNeutral.jpg", "./danySad.png"],
-  Cersei: ["DATA", "cerseiHappy.gif", "./cerseiNeutral.jpg", "./cerseiSad.jpg"]
+  Jon: ["HAPPY", "./jonHappy.gif", "./jonNeutral.gif", "./jonSad.gif"],
+  Daenerys: ["SAD", "./danyHappy.gif", "./danyNeutral.gif", "./danySad.gif"],
+  Cersei: [
+    "NEUTRAL",
+    "cerseiHappy.gif",
+    "./cerseiNeutral.gif",
+    "./cerseiSad.gif"
+  ]
 };
 
-// function Sentiment({ data, state }) {
-//   switch (state) {
-//     case "HAPPY":
-//       return <Info text={text} />;
-//     case "NEUTRAL":
-//       return <Warning text={text} />;
-//     case "SAD":
-//       return <Error text={text} />;
-//     default:
-//       return aasd;
-//   }
-// }
+// WHATEVER FUNCTION YOU WRITE TO RECEIVE, SEND IT TO *SENTIMENT* IN THE CARD COMPONENT
 
-const CardList = props => {
+const CardList = () => {
   return (
-    <div style={displays}>
+    <div style={list}>
       {Object.keys(characters).map((key, i) => {
         return (
           <Card
