@@ -23,7 +23,7 @@ const imageContainer = {
 
 const images = {
   objectFit: "cover",
-  objectPosition: "50% 50%",
+  objectPosition: "40% 50%",
   width: "100%",
   height: "100%"
 };

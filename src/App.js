@@ -6,9 +6,9 @@ import moment from "moment";
 
 class GotSentiment extends Component {
   state = {
-    jon: "NEUTRAL",
+    jon: "SAD",
     cersei: "NEUTRAL",
-    daenerys: "NEUTRAL",
+    daenerys: "HAPPY",
     lastUpdate: ""
   };
 
