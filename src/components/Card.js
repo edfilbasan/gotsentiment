@@ -2,20 +2,30 @@ import React, { Component } from "react";
 
 const container = {
   display: "flex",
-  flexDirection: "column",
-  width: "415px",
-  height: "500px",
-  borderRadius: "4px",
+  flexDirection: "row",
+  alignItems: "center",
+  width: "359px",
+  height: "200px",
+  borderRadius: "8px",
   backgroundColor: "white",
-  margin: "1%",
-  boxShadow: "0px 5px 10px rgba(0, 0, 0, .5)"
+  boxShadow: "0px 4px 8px 0px rgba(0,0,0,0.15)",
+  margin: "20px 20px"
+};
+
+const imageContainer = {
+  height: "184px",
+  width: "184px",
+  borderRadius: "50%",
+  overflow: "hidden",
+  position: "relative",
+  margin: "4px 4px 4px 4px"
 };
 
 const images = {
   objectFit: "cover",
-  objectPosition: "50% 20%",
+  objectPosition: "50% 50%",
   width: "100%",
-  height: "70%"
+  height: "100%"
 };
 
 const titles = {
@@ -23,7 +33,7 @@ const titles = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  alignItems: "center"
+  alignItems: "flex-start"
 };
 
 class Card extends Component {
@@ -43,12 +53,14 @@ class Card extends Component {
   render() {
     return (
       <div style={container}>
-        <img alt="GOT" src={this.props.image} style={images} />
+        <div style={imageContainer}>
+          <img alt={this.props.image} src={this.props.image} style={images} />
+        </div>
         <div style={titles}>
-          <h2 className="nameTitle">{this.props.name}</h2>
-          <h1 className={this.sentiment(this.props.sentiment)}>
+          <h3>{this.props.name}</h3>
+          <h2 className={this.sentiment(this.props.sentiment)}>
             {this.props.sentiment}
-          </h1>
+          </h2>
         </div>
       </div>
     );

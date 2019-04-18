@@ -16,22 +16,32 @@ body {
   /* background-image: url("./styles/images/background.png");
   background-repeat: no-repeat;
   background-size: cover; */
-  background-color: #FFFFFC;
+  background-color: #FFFFFC
 }
 
 h1 {
-  font-family: "Game of Thrones";
-  font-size: 56px;
-  color: white;
-  margin-top: 52px;
-  margin-bottom: 0px;
-  letter-spacing: 5px;
+  font-family: "Trajan Pro Regular";
+  font-weight: 400;
+  font-size: 36px;
+  color: #272320;
 }
 
 h2 {
-  font-family: "Trajan Pro Regular";
-  font-size: 36px;
-  color: white;
+  font-family: "Trajan Pro";
+  font-weight: "400";
+  font-size: 30px;
+  color: #2C771B;
+  letter-spacing: -0.79px;
+  margin: 8px 0px 0px 0px;
+}
+
+h3 {
+  font-family: "Game of Thrones";
+  color: #272320;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-align: center;
   margin: 0px 0px;
 }
 
@@ -43,30 +53,19 @@ h2 {
   margin-bottom: 2%;
 }
 
-.nameTitle {
-  color: #243542
-}
+.nameTitle {}
 
 .sentimentSad {
-  /* font-family: TrajanPro; */
-  margin-top: 12px;
-  font-size: 75px;
   color: #9C1212;
   text-align: left;
 }
 
 .sentimentNeutral {
-  /* font-family: TrajanPro; */
-  margin-top: 12px;
-  font-size: 75px;
-  color: #974722;
+  color: #747229;
   text-align: left;
 }
 
 .sentimentHappy {
-  /* font-family: TrajanPro-Regular; */
-  margin-top: 12px;
-  font-size: 75px;
   color: #2C771B;
   text-align: left;
 }
