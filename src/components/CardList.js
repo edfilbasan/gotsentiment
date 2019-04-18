@@ -10,28 +10,36 @@ const list = {
 };
 
 let characters = {
-  Jon: ["HAPPY", "./jonHappy.gif", "./jonNeutral.gif", "./jonSad.gif"],
-  Daenerys: ["SAD", "./danyHappy.gif", "./danyNeutral.gif", "./danySad.gif"],
-  Cersei: [
-    "NEUTRAL",
-    "cerseiHappy.gif",
-    "./cerseiNeutral.gif",
-    "./cerseiSad.gif"
-  ]
+  Jon: ["./jonHappy.gif", "./jonNeutral.gif", "./jonSad.gif"],
+  Daenerys: ["./danyHappy.gif", "./danyNeutral.gif", "./danySad.gif"],
+  Cersei: ["cerseiHappy.gif", "./cerseiNeutral.gif", "./cerseiSad.gif"]
 };
 
 // WHATEVER FUNCTION YOU WRITE TO RECEIVE, SEND IT TO *SENTIMENT* IN THE CARD COMPONENT
+function getImageIdx(str){
+  switch(str){
+    case 'HAPPY':
+      return 0;
+    case 'NEUTRAL':
+      return 1;
+    case 'SAD':
+      return 2;
+    default:
+      return 2;
+  }
+}
 
-const CardList = () => {
+const CardList = (props) => {
   return (
     <div style={list}>
       {Object.keys(characters).map((key, i) => {
+        const charFeel = props.data[key.toLowerCase()];
         return (
           <Card
             key={i}
             name={key}
-            sentiment={Object.values(characters)[i][0]}
-            image={Object.values(characters)[i][1]}
+            sentiment={charFeel}
+            image={Object.values(characters)[i][getImageIdx(charFeel)]}
           />
         );
       })}

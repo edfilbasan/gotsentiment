@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import "./App.css";
 import CardList from "./components/CardList.js";
+import moment from 'moment';
 
 class GotSentiment extends Component {
+  state = {
+    jon: 'NEUTRAL',
+    cersei: 'NEUTRAL',
+    daenerys: 'NEUTRAL',
+    lastUpdate: ''
+  }
+
   componentWillMount(){
-    this.getData();
-    setInterval(this.getData, 10000);
+    this.getData.bind(this);
+    setInterval(this.getData.bind(this), 10000);
   }
 
   async getData() {
@@ -17,10 +25,13 @@ class GotSentiment extends Component {
           'Content-Type': 'application/json',
         },
       });
-      console.log(res);
-      console.log(res.body);
-      res.text().then(data=>console.log(data));
-
+      res.text().then(data=> {
+        const dataObj = JSON.parse(data);
+        dataObj.lastUpdate = moment(new Date()).format('MM/DD/YYYY h:mm:ss a');
+        this.setState(dataObj, ()=>{
+          console.log(this.state);
+        });
+      });
     } catch (e) {
       console.log(e);
     }
@@ -33,7 +44,7 @@ class GotSentiment extends Component {
           <h1>Game of Thrones</h1>
           <h2>S8E1 Twitter Feels Chart</h2>
         </div>
-        <CardList />
+        <CardList data={this.state} />
       </div>
     );
   }
