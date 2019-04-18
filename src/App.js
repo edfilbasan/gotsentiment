@@ -1,34 +1,34 @@
 import React, { Component } from "react";
 import "./App.css";
 import CardList from "./components/CardList.js";
-import moment from 'moment';
+import moment from "moment";
 
 class GotSentiment extends Component {
   state = {
-    jon: 'NEUTRAL',
-    cersei: 'NEUTRAL',
-    daenerys: 'NEUTRAL',
-    lastUpdate: ''
-  }
+    jon: "NEUTRAL",
+    cersei: "NEUTRAL",
+    daenerys: "NEUTRAL",
+    lastUpdate: ""
+  };
 
-  componentWillMount(){
+  componentWillMount() {
     this.getData.bind(this);
     setInterval(this.getData.bind(this), 10000);
   }
 
   async getData() {
-    try{
-      const res = await fetch('http://18.188.184.54/sampleurl', {
-        method: 'GET',
+    try {
+      const res = await fetch("http://18.188.184.54/sampleurl", {
+        method: "GET",
         header: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
       });
-      res.text().then(data=> {
+      res.text().then(data => {
         const dataObj = JSON.parse(data);
-        dataObj.lastUpdate = moment(new Date()).format('MM/DD/YYYY h:mm:ss a');
-        this.setState(dataObj, ()=>{
+        dataObj.lastUpdate = moment(new Date()).format("MM/DD/YYYY h:mm:ss a");
+        this.setState(dataObj, () => {
           console.log(this.state);
         });
       });
