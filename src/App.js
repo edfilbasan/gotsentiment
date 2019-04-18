@@ -41,10 +41,9 @@ class GotSentiment extends Component {
     return (
       <div>
         <div className="header">
-          <h1>Game of Thrones</h1>
-          <h2>S8E1 Twitter Feels Chart</h2>
-        </div>
-        <CardList data={this.state} />
+          <h1> Game of Thrones </h1> <h2> S8E1 Twitter Feels Chart </h2>{" "}
+        </div>{" "}
+        <CardList data={this.state} />{" "}
       </div>
     );
   }
