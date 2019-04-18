@@ -27,8 +27,8 @@ const titles = {
 };
 
 class Card extends Component {
-  sentiment = a => {
-    switch (a) {
+  sentiment = feel => {
+    switch (feel) {
       case "HAPPY":
         return "sentimentHappy";
       case "NEUTRAL":
