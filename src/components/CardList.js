@@ -7,16 +7,20 @@ const list = {
   flexWrap: "wrap",
   // width: "100%",
   justifyContent: "center",
-  margin: "2% 0px"
+  margin: "2% 3%"
 };
 
 let characters = {
   Jon: ["./jonHappy.gif", "./jonNeutral.gif", "./jonSad.gif"],
   Daenerys: ["./danyHappy.gif", "./danyNeutral.gif", "./danySad.gif"],
-  Cersei: ["cerseiHappy.gif", "./cerseiNeutral.gif", "./cerseiSad.gif"]
+  Cersei: ["./cerseiHappy.gif", "./cerseiNeutral.gif", "./cerseiSad.gif"],
+  Arya: ["./aryaHappy.gif", "./aryaNeutral.gif", "./aryaSad.gif"],
+  Sansa: ["./sansaHappy.gif", "./sansaNeutral.gif", "./sansaSad.gif"],
+  Bran: ["./branHappy.gif", "./branNeutral.gif", "./branSad.gif"],
+  Tyrion: ["./tyrionHappy.gif", "./tyrionNeutral.gif", "./tyrionSad.gif"],
+  Jaime: ["./jaimeHappy.gif", "./jaimeNeutral.gif", "./jaimeSad.gif"]
 };
 
-// WHATEVER FUNCTION YOU WRITE TO RECEIVE, SEND IT TO *SENTIMENT* IN THE CARD COMPONENT
 function getImageIdx(str) {
   switch (str) {
     case "HAPPY":

@@ -9,6 +9,11 @@ class GotSentiment extends Component {
     jon: "NEUTRAL",
     cersei: "NEUTRAL",
     daenerys: "NEUTRAL",
+    arya: "NEUTRAL",
+    sansa: "NEUTRAL",
+    bran: "NEUTRAL",
+    tyrion: "NEUTRAL",
+    jaime: "NEUTRAL",
     lastUpdate: ""
   };
 
