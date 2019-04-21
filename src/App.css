@@ -27,7 +27,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Trajan Pro";
+  font-family: "Trajan Pro Regular";
   font-weight: "400";
   font-size: 26px;
   color: #2C771B;
@@ -43,6 +43,14 @@ h3 {
   letter-spacing: 1px;
   text-align: center;
   margin: 0px 0px;
+}
+
+h4 {
+  font-family: "Trajan Pro Regular";
+  font-size: 16px;
+  font-weight: 400;
+  color: #6E6B68;
+  letter-spacing: -0.4px;
 }
 
 .header {

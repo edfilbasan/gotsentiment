@@ -61,6 +61,7 @@ class Card extends Component {
           <h2 className={this.sentiment(this.props.sentiment)}>
             {this.props.sentiment}
           </h2>
+          <h4>TWEETS: {this.props.total}</h4>
         </div>
       </div>
     );
