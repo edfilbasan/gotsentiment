@@ -33,21 +33,21 @@ const headerSub = {
   margin: "4px 0px 0px 0px"
 };
 
-const nav = {
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  justifyContent: "space-between",
-  marginRight: "5%"
-};
+// const nav = {
+//   display: "flex",
+//   flexDirection: "row",
+//   alignItems: "center",
+//   justifyContent: "space-between",
+//   marginRight: "5%"
+// };
 
-const navText = {
-  margin: "0px 10px",
-  fontFamily: "Trajan Pro",
-  fontSize: "20px",
-  color: "#272320",
-  textAlign: "center"
-};
+// const navText = {
+//   margin: "0px 10px",
+//   fontFamily: "Trajan Pro",
+//   fontSize: "20px",
+//   color: "#272320",
+//   textAlign: "center"
+// };
 
 const Header = props => {
   return (
