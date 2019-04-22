@@ -50,12 +50,14 @@ const headerSub = {
 // };
 
 const Header = props => {
+  console.log(props.lastUpdate);
   return (
     <div style={container}>
       <div style={headerText}>
         <h3 style={headerTitle}>Game of Thrones</h3>
         <p style={headerSub}>Twitter Feels Analysis</p>
       </div>
+      <p style={headerSub}>{props.lastUpdate}</p>
     </div>
   );
 };

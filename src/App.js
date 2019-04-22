@@ -31,7 +31,7 @@ class GotSentiment extends Component {
   getData() {
     const charRef = Firebase.database().ref("/characters");
     charRef.on("value", snapshot => {
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
       const dataObj = snapshot.val();
       dataObj.lastUpdate = moment(new Date()).format("MM/DD/YYYY h:mm:ss a");
       this.setState(dataObj, () => {
