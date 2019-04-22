@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/gotsentiment/static/css/main.dd26ed5a.chunk.css"
   },
   {
-    "revision": "abe7f001d2d1b9341903a1c281bd18be",
+    "revision": "21d04f92357c0783e6adc8dec8d40d9a",
     "url": "/gotsentiment/index.html"
   }
 ];
