@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/gotsentiment/static/js/runtime~main.4bd5f926.js"
   },
   {
-    "revision": "e65d44c3de36e1dc7b41",
-    "url": "/gotsentiment/static/js/main.73a2e2f4.chunk.js"
+    "revision": "b2ddc933796b54f38308",
+    "url": "/gotsentiment/static/js/main.272a5ee9.chunk.js"
   },
   {
     "revision": "bbb4b09c049fe98af716",
     "url": "/gotsentiment/static/js/2.e2224f75.chunk.js"
   },
   {
-    "revision": "e65d44c3de36e1dc7b41",
+    "revision": "b2ddc933796b54f38308",
     "url": "/gotsentiment/static/css/main.dd26ed5a.chunk.css"
   },
   {
-    "revision": "21d04f92357c0783e6adc8dec8d40d9a",
+    "revision": "d691046f25b1ce916c0c45cc24cd569e",
     "url": "/gotsentiment/index.html"
   }
 ];
