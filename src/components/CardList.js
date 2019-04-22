@@ -19,8 +19,8 @@ let characters = {
   Sansa: ["./sansaHappy.gif", "./sansaNeutral.gif", "./sansaSad.gif"],
   Bran: ["./branHappy.gif", "./branNeutral.gif", "./branSad.gif"],
   Tyrion: ["./tyrionHappy.gif", "./tyrionNeutral.gif", "./tyrionSad.gif"],
-  Jaime: ["./jaimeHappy.gif", "./jaimeNeutral.gif", "./jaimeSad.gif"],
-  Donald: ["./donaldHappy.gif", "./donaldNeutral.gif", "./donaldSad.gif"]
+  Jaime: ["./jaimeHappy.gif", "./jaimeNeutral.gif", "./jaimeSad.gif"]
+  // Donald: ["./donaldHappy.gif", "./donaldNeutral.gif", "./donaldSad.gif"]
 };
 
 function getImageIdx(str) {
