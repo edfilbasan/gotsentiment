@@ -17,7 +17,8 @@ const headerText = {
   flexDirection: "column",
   justifyContent: "center",
   margin: "auto 5%",
-  height: "100%"
+  height: "100%",
+  clear: "both"
 };
 
 const headerTitle = {
@@ -37,7 +38,7 @@ const nav = {
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
-  marginRight: "80px"
+  marginRight: "5%"
 };
 
 const navText = {
@@ -55,17 +56,13 @@ const Header = props => {
         <h3 style={headerTitle}>Game of Thrones</h3>
         <p style={headerSub}>Twitter Feels Analysis</p>
       </div>
-
-      <div style={nav}>
-        <p style={navText}>Home</p>
-        <p style={navText}>About</p>
-      </div>
     </div>
   );
 };
 
 export default Header;
 
-// <div className="header">
-//           <h1> Game of Thrones </h1> <h2> S8E1 Twitter Feels Chart </h2>{" "}
-//         </div>
+// <div style={nav}>
+// <p style={navText}>Home</p>
+//         <p style={navText}>About</p>
+//       </div>

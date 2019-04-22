@@ -9,7 +9,10 @@ const container = {
   borderRadius: "8px",
   backgroundColor: "white",
   boxShadow: "0px 4px 8px 0px rgba(0,0,0,0.15)",
-  margin: "20px 20px"
+  margin: "20px 20px",
+  "&:hover": {
+    backgroundColor: "red"
+  }
 };
 
 const imageContainer = {
