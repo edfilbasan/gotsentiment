@@ -52,7 +52,7 @@ class Card extends Component {
 
   render() {
     return (
-      <div style={container}>
+      <div style={container} className="grow">
         <div style={imageContainer}>
           <img alt={this.props.image} src={this.props.image} style={images} />
         </div>
