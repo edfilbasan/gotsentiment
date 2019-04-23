@@ -54,13 +54,13 @@ class Card extends Component {
   emoji = feel => {
     switch (feel) {
       case "HAPPY":
-        return "😃";
+        return ["😃", "💯", "🎉"];
       case "NEUTRAL":
-        return "😐";
+        return ["😐", "😌", "🆗"];
       case "SAD":
-        return "😭";
+        return ["😭", "😔", "😟"];
       default:
-        return "😐";
+        return ["😐", "😌", "🆗"];
     }
   };
 
@@ -81,11 +81,11 @@ class Card extends Component {
           }}
           type="emoji"
           config={{
-            emoji: [this.emoji(this.props.sentiment)],
-            lifetime: 100,
+            emoji: this.emoji(this.props.sentiment),
+            lifetime: 300,
             spread: 40,
             springAnimation: false,
-            elementCount: 15
+            elementCount: 20
           }}
         />
 
