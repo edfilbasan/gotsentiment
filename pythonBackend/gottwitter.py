@@ -14,6 +14,7 @@ from firebase_admin import db
 import twitter_config
 from GotCharacter import GotCharacter
 import charSets
+import json
 
 # Fetch the service account key JSON file contents
 cred = credentials.Certificate('gotsentiment-service-file.json')
@@ -43,19 +44,45 @@ class MyStreamListener(tweepy.StreamListener):
 
 		# Receives tweets, operates on them (more operations to come?)
 		def on_status(self, status):
-			tweetTime = math.floor(time.time())
-			newtuple = (status.text, tweetTime)
-			words = status.text.split()
-			lowerWords = [x.lower() for x in words]
-			print(lowerWords)
-			wordSet = set(lowerWords)
-			# with open("tweetTest.txt", "w") as file:
-			# 	file.write(self.clean_tweet(status.text))
-			# 	file.write("\n")
+			try:
+				tweetTime = math.floor(time.time())
+				newtuple = (status.text, tweetTime)
+				#not full
+				words = status.text.split()
+				lowerWords = [x.lower() for x in words]
+				#full
+				# if( hasattr(status, 'extended_tweet')):
+				# 	words = status.extended_tweet['full_text'].split()
+				# 	lowerWords = [x.lower() for x in words]
+				# 	print("larger tweet")
+				# # print(".")
+				print(lowerWords)
+				# wordSet = set(lowerWords)
+				# with open("afterEpisode2.txt", "a") as file:
+				# 	file.write(self.clean_tweet(status.text))
+				# 	file.write("\n")
 
-			for char in charList:
-				if(not wordSet.isdisjoint(char.keywords)):
-					self.updateCharacter(char, self.get_tweet_sentiment(status.text))
+				# for char in charList:
+				# 	if(not wordSet.isdisjoint(char.keywords)):
+				# 		self.updateCharacter(char, self.get_tweet_sentiment(status.text))
+			except Exception as e:
+				print(">>>>Encountered Exception Tweet: %s" % str(e))
+				pass
+			return True
+
+		def on_disconnect(self, notice): 
+			"""Called when twitter sends a disconnect notice Disconnect 
+			codes are listed here: https://dev.twitter.com/docs/streaming-
+			apis/messages#Disconnect_messages_disconnect """ 
+			print(notice)
+			print('DISCONNECTED')
+			return 
+
+
+		def on_stall_warning(self, status):
+			print("stall warning")
+			print(status)
+			return True
 
 		def updateCharacter(self, char, sentiment):
 			if(sentiment== 'positive'):
@@ -64,7 +91,11 @@ class MyStreamListener(tweepy.StreamListener):
 				char.onNegative()
 			else:
 				char.onNeutral()
-			char.printStatus()
+			# char.printStatus()
+
+		def on_error(self, status_code):
+			print("Encountered error with status code:" + repr(status_code))
+			return True
 
 		def process_tweets(self, fetched_tweets):
 			tweets = []
@@ -95,6 +126,7 @@ class MyStreamListener(tweepy.StreamListener):
 					return tweets
 			except tweepy.TweepError as e:
 					# print error (if any)
+					print('is this the issue?')
 					print("Error : " + str(e))
 
 		def get_tweet_sentiment(self, tweet):
@@ -132,7 +164,7 @@ class TwitterClient(object):
 						# set access token and secret
 						self.auth.set_access_token(twitter_config.access_token, twitter_config.access_token_secret)
 						# create tweepy API object to fetch tweets
-						self.api = tweepy.API(self.auth)
+						self.api = tweepy.API(self.auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 				except:
 						print("Error: Authentication Failed")
 
@@ -200,9 +232,32 @@ def makeData():
 		api = TwitterClient()
 
 		myStreamListener = MyStreamListener()
-		myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
-		myStream.filter(track=charSets.filterSet)
-		print('test')
+		try:
+			myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
+			myStream.filter(track=charSets.filterSet, stall_warnings=True, is_async=True)
+			print('test')
+		# various exception handling blocks
+		except KeyboardInterrupt:
+			sys.exit()
+		except AttributeError as e:
+			print('AttributeError was returned, stupid bug')
+			pass
+		except tweepy.TweepError as e:
+			print('Below is the printed exception')
+			print(e)
+			if '401' in e:    
+				# not sure if this will even work
+				print('Below is the response that came in')
+				print(e)
+				sleep(60)
+				pass
+			else:
+				#raise an exception if another status code was returned, we don't like other kinds
+				raise e
+		except Exception as e:
+			print('Unhandled exception')
+			raise e
+
 
 if __name__ == "__main__":
 

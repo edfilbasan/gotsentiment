@@ -11,4 +11,4 @@ donaldSet = {'trump', 'donald trump', 'MAGA', 'President'}
 
 thronesSet = {'game of thrones', 'gameofthrones', 'thrones', 'a song of ice and fire', 'hbo'}
 
-filterSet = jonSet|danySet|cerseiSet|cerseiSet|aryaSet|sansaSet|branSet|tyrionSet|jaimeSet|donaldSet
+filterSet = jonSet|danySet|cerseiSet|cerseiSet|aryaSet|sansaSet|branSet|tyrionSet|jaimeSet
