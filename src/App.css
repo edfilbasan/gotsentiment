@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Game of Thrones";
-  src: url("./styles/Game\ of\ Thrones.ttf") format("ttf"),
+  src: url("./styles/Game of Thrones.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Trajan Pro Regular";
-  src: url("./styles/Trajan\ Pro\ Regular.ttf") format("ttf"),
+  src: url("./styles/Trajan Pro Regular.ttf") format("truetype");
 }
 
 

@@ -82,10 +82,11 @@ class Card extends Component {
           type="emoji"
           config={{
             emoji: this.emoji(this.props.sentiment),
-            lifetime: 300,
+            lifetime: 200,
             spread: 40,
             springAnimation: false,
-            elementCount: 20
+            elementCount: 20,
+            elementSize: 32
           }}
         />
 
