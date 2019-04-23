@@ -17,7 +17,8 @@ const headerText = {
   flexDirection: "column",
   justifyContent: "center",
   margin: "auto 5%",
-  height: "100%"
+  height: "100%",
+  clear: "both"
 };
 
 const headerTitle = {
@@ -32,40 +33,38 @@ const headerSub = {
   margin: "4px 0px 0px 0px"
 };
 
-const nav = {
-  display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  justifyContent: "space-between",
-  marginRight: "80px"
-};
+// const nav = {
+//   display: "flex",
+//   flexDirection: "row",
+//   alignItems: "center",
+//   justifyContent: "space-between",
+//   marginRight: "5%"
+// };
 
-const navText = {
-  margin: "0px 10px",
-  fontFamily: "Trajan Pro",
-  fontSize: "20px",
-  color: "#272320",
-  textAlign: "center"
-};
+// const navText = {
+//   margin: "0px 10px",
+//   fontFamily: "Trajan Pro",
+//   fontSize: "20px",
+//   color: "#272320",
+//   textAlign: "center"
+// };
 
 const Header = props => {
+  console.log(props.lastUpdate);
   return (
     <div style={container}>
       <div style={headerText}>
         <h3 style={headerTitle}>Game of Thrones</h3>
         <p style={headerSub}>Twitter Feels Analysis</p>
       </div>
-
-      <div style={nav}>
-        <p style={navText}>Home</p>
-        <p style={navText}>About</p>
-      </div>
+      <p style={headerSub}>{props.lastUpdate}</p>
     </div>
   );
 };
 
 export default Header;
 
-// <div className="header">
-//           <h1> Game of Thrones </h1> <h2> S8E1 Twitter Feels Chart </h2>{" "}
-//         </div>
+// <div style={nav}>
+// <p style={navText}>Home</p>
+//         <p style={navText}>About</p>
+//       </div>

@@ -4,6 +4,8 @@ import CardList from "./components/CardList.js";
 import Header from "./components/Header.js";
 import moment from "moment";
 import { firebase_config } from "./utils/apiKey.js";
+import { tachyons } from "tachyons";
+import Reward from "react-rewards";
 import Firebase from "firebase";
 
 // Initialize Firebase
@@ -31,7 +33,7 @@ class GotSentiment extends Component {
   getData() {
     const charRef = Firebase.database().ref("/characters");
     charRef.on("value", snapshot => {
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
       const dataObj = snapshot.val();
       dataObj.lastUpdate = moment(new Date()).format("MM/DD/YYYY h:mm:ss a");
       this.setState(dataObj, () => {
@@ -45,6 +47,20 @@ class GotSentiment extends Component {
     return (
       <div>
         <Header />
+        <Reward
+          ref={ref => {
+            this.reward = ref;
+          }}
+          type="emoji"
+          config={{ emoji: ["😢"], springAnimation: false, elementCount: 10 }}
+        >
+          <button
+            style={{ backgroundColor: "red", width: "50%", height: "100px" }}
+            onClick={() => this.reward.rewardMe()}
+          >
+            CLICK ME
+          </button>
+        </Reward>
         <CardList data={this.state} />
       </div>
     );
@@ -52,12 +68,3 @@ class GotSentiment extends Component {
 }
 
 export default GotSentiment;
-
-//TODO IF SHIT GETS CRAZY
-// ADD A SEARCH BOX SO USERS CAN FIND CHARACTERS
-// -----
-// onSearchChange = event => {
-//   this.setState({
-//     searchField: event.target.value
-//   });
-// };
