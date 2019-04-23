@@ -5,7 +5,6 @@ import Header from "./components/Header.js";
 import moment from "moment";
 import { firebase_config } from "./utils/apiKey.js";
 import { tachyons } from "tachyons";
-import Reward from "react-rewards";
 import Firebase from "firebase";
 
 // Initialize Firebase
@@ -47,20 +46,6 @@ class GotSentiment extends Component {
     return (
       <div>
         <Header />
-        <Reward
-          ref={ref => {
-            this.reward = ref;
-          }}
-          type="emoji"
-          config={{ emoji: ["😢"], springAnimation: false, elementCount: 10 }}
-        >
-          <button
-            style={{ backgroundColor: "red", width: "50%", height: "100px" }}
-            onClick={() => this.reward.rewardMe()}
-          >
-            CLICK ME
-          </button>
-        </Reward>
         <CardList data={this.state} />
       </div>
     );
