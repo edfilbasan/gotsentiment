@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Reward from "react-rewards";
 
 const container = {
   display: "flex",
@@ -50,17 +51,50 @@ class Card extends Component {
     }
   };
 
+  emoji = feel => {
+    switch (feel) {
+      case "HAPPY":
+        return "😃";
+      case "NEUTRAL":
+        return "😐";
+      case "SAD":
+        return "😭";
+      default:
+        return "😐";
+    }
+  };
+
   render() {
     return (
-      <div style={container} className="grow">
+      <div
+        style={container}
+        className="grow"
+        onClick={() => this.reward.rewardMe()}
+      >
         <div style={imageContainer}>
           <img alt={this.props.image} src={this.props.image} style={images} />
         </div>
+
+        <Reward
+          ref={ref => {
+            this.reward = ref;
+          }}
+          type="emoji"
+          config={{
+            emoji: [this.emoji(this.props.sentiment)],
+            lifetime: 100,
+            spread: 40,
+            springAnimation: false,
+            elementCount: 15
+          }}
+        />
+
         <div style={titles}>
           <h3>{this.props.name}</h3>
           <h2 className={this.sentiment(this.props.sentiment)}>
             {this.props.sentiment}
           </h2>
+
           <h4>TWEETS: {this.props.total}</h4>
         </div>
       </div>
