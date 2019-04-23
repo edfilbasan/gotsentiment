@@ -19,7 +19,7 @@ const imageContainer = {
   borderRadius: "50%",
   overflow: "hidden",
   position: "relative",
-  margin: "4px 16px 4px 4px"
+  margin: "4px 8px 4px 4px"
 };
 
 const images = {
