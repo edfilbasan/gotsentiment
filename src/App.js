@@ -36,7 +36,7 @@ class GotSentiment extends Component {
       const dataObj = snapshot.val();
       dataObj.lastUpdate = moment(new Date()).format("MM/DD/YYYY h:mm:ss a");
       this.setState(dataObj, () => {
-        console.log(this.state);
+        // console.log(this.state);
       });
       //LEFT OFF HERE
     });

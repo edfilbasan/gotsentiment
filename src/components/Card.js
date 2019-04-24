@@ -65,6 +65,7 @@ class Card extends Component {
   };
 
   render() {
+    console.log("What the fuck is this thing: ", this.props);
     return (
       <div
         style={container}
@@ -84,11 +85,12 @@ class Card extends Component {
             emoji: this.emoji(this.props.sentiment),
             lifetime: 200,
             spread: 40,
-            springAnimation: false,
             elementCount: 20,
             elementSize: 32
           }}
         />
+
+        {this.props.animate ? this.reward.rewardMe() : console.log("no")}
 
         <div style={titles}>
           <h3>{this.props.name}</h3>
@@ -96,7 +98,10 @@ class Card extends Component {
             {this.props.sentiment}
           </h2>
 
-          <h4>TWEETS: {this.props.total}</h4>
+          <h4>
+            TWEETS <br />
+            {this.props.total}
+          </h4>
         </div>
       </div>
     );
