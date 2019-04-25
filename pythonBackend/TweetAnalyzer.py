@@ -1,34 +1,14 @@
 import re
 from textblob import TextBlob
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import db
 
-from GotCharacter import GotCharacter
-# Fetch the service account key JSON file contents
-cred = credentials.Certificate('gotsentiment-service-file.json')
-import charSets
-
-# Initialize the app with a service account, granting admin privileges
-defualt_app = firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://gotsentiment.firebaseio.com'
-})
-
-charRef = db.reference('characters')
-
-cerseiChar = GotCharacter(charRef.child("cersei"), "Cersei", charSets.cerseiSet)
-danyChar = GotCharacter(charRef.child("daenerys"), "Dany", charSets.danySet)
-jonChar = GotCharacter(charRef.child("jon"), "Jon", charSets.jonSet)
-aryaChar = GotCharacter(charRef.child("arya"), "Arya", charSets.aryaSet)
-sansaChar = GotCharacter(charRef.child("sansa"), "Sansa", charSets.sansaSet)
-branChar = GotCharacter(charRef.child("bran"), "Bran", charSets.branSet)
-tyrionChar = GotCharacter(charRef.child("tyrion"), "Tyrion", charSets.tyrionSet)
-jaimeChar = GotCharacter(charRef.child("jaime"), "Jaime", charSets.jaimeSet)
-# donaldChar = GotCharacter(charRef.child("donald"), "Donald", charSets.donaldSet)
-
-charList = [cerseiChar, danyChar, jonChar, aryaChar, sansaChar, branChar, tyrionChar, jaimeChar]
 class TweetAnalyzer():
 	num = 0
+
+	charList = []
+
+	def __init__(self, charList):
+		self.charList = charList
+
 	def analyze(self, tweetText):
 		# print( "Analyze this text: " + tweetText)
 		words = tweetText.split()
@@ -38,7 +18,7 @@ class TweetAnalyzer():
 		# with open("afterEpisode2.txt", "a") as file:
 		# 	file.write(self.clean_tweet(status.text))
 		# 	file.write("\n")
-		for char in charList:
+		for char in self.charList:
 			if(not wordSet.isdisjoint(char.keywords)):
 				self.num += 1
 				print("num sent to update character: " + str(self.num))

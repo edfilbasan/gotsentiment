@@ -10,7 +10,6 @@ class MyStreamListener(tweepy.StreamListener):
 		# Receives tweets, operates on them (more operations to come?)
 		def on_status(self, status):
 			try:
-				#begin threading change
 				if (hasattr(status,'extended_tweet')):
 					tweetText = self.clean_tweet(status.extended_tweet['full_text'])
 				else:

@@ -29,6 +29,7 @@ class GotCharacter():
 		self.keywords = keywords 
 
 	def onPositive(self):
+		print('SOMETHING POSITIVE: ' + self.name)
 		self.positive = self.positive+1
 		self.net = self.net+1
 		self.total = self.total+1
