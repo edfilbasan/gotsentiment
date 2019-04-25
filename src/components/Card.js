@@ -40,15 +40,15 @@ const titles = {
 };
 
 class Card extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state = {  
+    this.state = {
       negative: 0,
       net: 0,
       neutral: 0,
       positive: 0,
-      total: 0, 
-      sentiment: 'NEUTRAL'
+      total: 0,
+      sentiment: "NEUTRAL"
     };
   }
 
@@ -57,18 +57,19 @@ class Card extends Component {
   }
 
   onDataChange(name) {
-    const charRef = Firebase.database().ref("/characters/"+name);
+    const charRef = Firebase.database().ref("/characters/" + name);
     charRef.on("value", snapshot => {
       const charVals = snapshot.val();
       charVals.sentiment = this.getCharData(charVals);
+      console.log(charVals);
       // get current state sentiment to compare to updated sentiment
       const prevState = this.state.sentiment;
-      this.setState(charVals, () =>{
+      this.setState(charVals, () => {
         // on callback, compare current sentiment to previous, "reward" if changed
-        if(this.state.sentiment !== prevState){
+        if (this.state.sentiment !== prevState) {
           this.reward.rewardMe();
         }
-      })
+      });
     });
   }
 
@@ -98,7 +99,6 @@ class Card extends Component {
     }
   }
 
-
   sentiment = feel => {
     switch (feel) {
       case "HAPPY":
@@ -126,7 +126,9 @@ class Card extends Component {
   };
 
   render() {
-    const sentimentImg = this.props.images[this.getImageIdx(this.state.sentiment)];
+    const sentimentImg = this.props.images[
+      this.getImageIdx(this.state.sentiment)
+    ];
     return (
       <div
         style={container}

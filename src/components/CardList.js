@@ -23,22 +23,12 @@ let characters = {
 };
 
 class CardList extends Component {
-  // TODO: LOOK INTO getSnapshotBeforeUpdate!!!
-
-  // componentDidMount() {
-  //   this.setState({})
-  // }
-
   render() {
     return (
       <div style={list}>
         {Object.keys(characters).map((key, i) => {
           return (
-            <Card
-              key={i}
-              name={key}
-              images={Object.values(characters)[i]}
-            />
+            <Card key={i} name={key} images={Object.values(characters)[i]} />
           );
         })}
       </div>
