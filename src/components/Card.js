@@ -19,7 +19,7 @@ const imageContainer = {
   borderRadius: "50%",
   overflow: "hidden",
   position: "relative",
-  margin: "4px 16px 4px 4px"
+  margin: "4px 8px 4px 4px"
 };
 
 const images = {
@@ -54,17 +54,18 @@ class Card extends Component {
   emoji = feel => {
     switch (feel) {
       case "HAPPY":
-        return "😃";
+        return ["😃", "💯", "🎉"];
       case "NEUTRAL":
-        return "😐";
+        return ["😐", "😌", "🆗"];
       case "SAD":
-        return "😭";
+        return ["😭", "😔", "😟"];
       default:
-        return "😐";
+        return ["😐", "😌", "🆗"];
     }
   };
 
   render() {
+    console.log("What the fuck is this thing: ", this.props);
     return (
       <div
         style={container}
@@ -81,13 +82,15 @@ class Card extends Component {
           }}
           type="emoji"
           config={{
-            emoji: [this.emoji(this.props.sentiment)],
-            lifetime: 100,
+            emoji: this.emoji(this.props.sentiment),
+            lifetime: 200,
             spread: 40,
-            springAnimation: false,
-            elementCount: 15
+            elementCount: 20,
+            elementSize: 32
           }}
         />
+
+        {this.props.animate ? this.reward.rewardMe() : console.log("no")}
 
         <div style={titles}>
           <h3>{this.props.name}</h3>
@@ -95,7 +98,10 @@ class Card extends Component {
             {this.props.sentiment}
           </h2>
 
-          <h4>TWEETS: {this.props.total}</h4>
+          <h4>
+            TWEETS <br />
+            {this.props.total}
+          </h4>
         </div>
       </div>
     );

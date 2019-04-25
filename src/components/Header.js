@@ -16,7 +16,7 @@ const headerText = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  margin: "auto 5%",
+  margin: "auto 0px 0px 40px",
   height: "100%",
   clear: "both"
 };
@@ -49,15 +49,13 @@ const headerSub = {
 //   textAlign: "center"
 // };
 
-const Header = props => {
-  console.log(props.lastUpdate);
+const Header = () => {
   return (
     <div style={container}>
       <div style={headerText}>
-        <h3 style={headerTitle}>Game of Thrones</h3>
-        <p style={headerSub}>Twitter Feels Analysis</p>
+        <h3 style={headerTitle}> Game of Thrones </h3>
+        <p style={headerSub}> Twitter Feels Analysis </p>
       </div>
-      <p style={headerSub}>{props.lastUpdate}</p>
     </div>
   );
 };
