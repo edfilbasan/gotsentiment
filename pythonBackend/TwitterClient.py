@@ -75,5 +75,4 @@ class TwitterClient(object):
 
 				except tweepy.TweepError as e:
 						# print error (if any)
-						print("get rekt m8")
 						print("Error : " + str(e))
