@@ -2,6 +2,11 @@ import re
 from textblob import TextBlob
 import nltk
 from nltk.corpus import twitter_samples
+from nltk.sentiment import SentimentAnalyzer
+from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
+
+sia = SIA()
+results = []
 
 class TweetAnalyzer():
 	num = 0
@@ -14,7 +19,7 @@ class TweetAnalyzer():
 	def analyze(self, tweetText):
 		# print( "Analyze this text: " + tweetText)
 		words = tweetText.split()
-		# print(words)
+		print(words)
 		lowerWords = [x.lower() for x in words]
 		wordSet = set(lowerWords)
 		# with open("afterEpisode2.txt", "a") as file:
@@ -42,6 +47,12 @@ class TweetAnalyzer():
 		'''
 		# create TextBlob object of passed tweet text (this is where analysis happens)
 		analysis = TextBlob(self.clean_tweet(tweet))
+		print("THE TWEET")
+		print(tweet)
+		pol_score = sia.polarity_scores(tweet)
+		print("pol score")
+		print(pol_score)
+		print(analysis.sentiment.polarity)
 		# set sentiment
 		if analysis.sentiment.polarity > 0:
 				return 'positive'
@@ -49,6 +60,7 @@ class TweetAnalyzer():
 				return 'neutral'
 		else:
 				return 'negative'
+				
 	def clean_tweet(self, tweet):
 		''' 
 		Utility function to clean tweet text by removing links, special characters 

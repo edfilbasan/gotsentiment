@@ -74,7 +74,7 @@ def analyzeFromQueue(i, que, ta):
 		que.task_done()
 
 def printIt(charList):
-	print("before calling decay on all char")
+	threading.Timer(30.0, printIt, [charList]).start()
 	for char in charList:
 		char.netDecay()
 
@@ -112,7 +112,7 @@ if __name__ == "__main__":
 	ta = TweetAnalyzer(charList)
 
 	# init workers that will analyze tweets found in the queue
-	for i in range(25):
+	for i in range(30):
 		worker = threading.Thread(target=analyzeFromQueue, args=(i,tweetQueue,ta))
 		worker.start()
 	# Start populating the queue with tweets from the csv file
@@ -121,4 +121,4 @@ if __name__ == "__main__":
 		populateThread.start()
 
 	print('yoyoyo')
-	threading.Timer(5.0, printIt, [charList]).start()
+	printIt(charList)

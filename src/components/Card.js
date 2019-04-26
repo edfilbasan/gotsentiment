@@ -48,7 +48,7 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
-      sentiment: "NEUTRAL"
+      sentiment: ""
     };
   }
 
