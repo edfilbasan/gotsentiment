@@ -1,5 +1,7 @@
 import re
 from textblob import TextBlob
+import nltk
+from nltk.corpus import twitter_samples
 
 class TweetAnalyzer():
 	num = 0
@@ -21,7 +23,7 @@ class TweetAnalyzer():
 		for char in self.charList:
 			if(not wordSet.isdisjoint(char.keywords)):
 				self.num += 1
-				print("num sent to update character: " + str(self.num))
+				# print("num sent to update character: " + str(self.num))
 				self.updateCharacter(char, self.get_tweet_sentiment(tweetText))
 
 	def updateCharacter(self, char, sentiment):

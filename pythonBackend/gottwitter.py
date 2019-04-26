@@ -4,6 +4,7 @@ import tweepy
 import threading
 import charSets
 import queue
+import os
 
 #import modules from local files
 from TwitterClient import TwitterClient
@@ -58,7 +59,7 @@ def initTweetStreaming():
 def initiator(que, fileName):
 	csv_reader = csv.reader(FileWatcher(open(fileName)))
 	for row in csv_reader:
-		print(row)
+		# print(row)
 		if(len(row)>=1):
 			tweet = row[0]
 			que.put(tweet)
@@ -67,12 +68,22 @@ def initiator(que, fileName):
 # Get an item from the queue, pass to the tweet analyzer, and finally notify when complete
 def analyzeFromQueue(i, que, ta):
 	while True:
-		print("%s: looking for next item" % i)
+		# print("%s: looking for next item" % i)
 		tweet = que.get()
 		ta.analyze(tweet)
 		que.task_done()
 
+def printIt(charList):
+	print("before calling decay on all char")
+	for char in charList:
+		char.netDecay()
+
 if __name__ == "__main__":
+	# file to save and read from
+	fileName = "#testThread5.csv"
+
+	if not os.path.exists(fileName):
+		open(fileName, 'w').close()
 
 	#baseline character firebase DB reference
 	charRef = db.reference('characters')
@@ -91,23 +102,23 @@ if __name__ == "__main__":
 	charList = [cerseiChar, danyChar, jonChar, aryaChar, sansaChar, branChar, tyrionChar, jaimeChar]
 
 	#init thread to stream tweets and write to file
-	thr = threading.Thread(target=initTweetStreaming, args=(), kwargs={})
-	if(not thr.is_alive()):
-			thr.start()
+	streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})
+	if(not streamThread.is_alive()):
+			streamThread.start()
 
 	# init queue for tweets to be processed
 	tweetQueue = queue.Queue()
 	# init tweet analyzer
 	ta = TweetAnalyzer(charList)
-	# file to save and read from
-	fileName = "#testThread4.csv"
 
 	# init workers that will analyze tweets found in the queue
-	for i in range(30):
+	for i in range(25):
 		worker = threading.Thread(target=analyzeFromQueue, args=(i,tweetQueue,ta))
 		worker.start()
 	# Start populating the queue with tweets from the csv file
-	initiator(tweetQueue, fileName)
-	
-	q.join()
-	print('done')
+	populateThread = threading.Thread(target=initiator, args=(tweetQueue, fileName), kwargs={})
+	if(not populateThread.is_alive()):
+		populateThread.start()
+
+	print('yoyoyo')
+	threading.Timer(5.0, printIt, [charList]).start()

@@ -17,14 +17,14 @@ class MyStreamListener(tweepy.StreamListener):
 				created_at = status.created_at
 				id = status.id
 				if(re.search('[a-zA-Z]', tweetText)):
-					print('NUM stream tweets: ' + str(self.idSelf))
-					print("\n")
+					# print('NUM stream tweets: ' + str(self.idSelf))
+					# print("\n")
 					self.idSelf += 1
 					self.tweet["tweet"] = tweetText
 					self.tweet["id"] = id
 					self.tweet["sequence"] = self.idSelf
 					self.tweet["created_at"] = created_at
-					with open('#testThread4.csv', 'a', newline='') as csv_file:
+					with open('#testThread5.csv', 'a', newline='') as csv_file:
 						writer = csv.DictWriter(csv_file, self.tweet.keys())
 						writer.writerow(self.tweet)
 			except Exception as e:
