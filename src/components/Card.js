@@ -61,7 +61,7 @@ class Card extends Component {
     charRef.on("value", snapshot => {
       const charVals = snapshot.val();
       charVals.sentiment = this.getCharData(charVals);
-      console.log(charVals);
+      console.log(`${this.props.name}:`, charVals);
       // get current state sentiment to compare to updated sentiment
       const prevState = this.state.sentiment;
       this.setState(charVals, () => {
