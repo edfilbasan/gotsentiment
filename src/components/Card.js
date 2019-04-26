@@ -149,7 +149,8 @@ class Card extends Component {
             lifetime: 200,
             spread: 40,
             elementCount: 20,
-            elementSize: 32
+            elementSize: 32,
+            springAnimation: true
           }}
         />
         <div style={titles}>
