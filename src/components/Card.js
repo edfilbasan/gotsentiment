@@ -59,7 +59,10 @@ class Card extends Component {
   onDataChange(name) {
     const charRef = Firebase.database().ref("/characters/" + name);
     charRef.on("value", snapshot => {
-      const charVals = snapshot.val();
+      let charVals = snapshot.val();
+      if(charVals == null){
+        charVals = this.state
+      }
       charVals.sentiment = this.getCharData(charVals);
       console.log(`${this.props.name}:`, charVals);
       // get current state sentiment to compare to updated sentiment
@@ -87,15 +90,17 @@ class Card extends Component {
   }
 
   getCharData(char) {
-    if (char.net == null) {
+    if (char == null || char.net == null) {
       return "NEUTRAL";
     }
-    if (char.net > HAPPY_FLOOR) {
-      return "HAPPY";
-    } else if (char.net <= SAD_CEILING) {
-      return "SAD";
-    } else {
-      return "NEUTRAL";
+    if(char != null){
+      if (char.net > HAPPY_FLOOR) {
+        return "HAPPY";
+      } else if (char.net <= SAD_CEILING) {
+        return "SAD";
+      } else {
+        return "NEUTRAL";
+      }
     }
   }
 

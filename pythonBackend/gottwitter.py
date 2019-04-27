@@ -121,4 +121,4 @@ if __name__ == "__main__":
 		populateThread.start()
 
 	print('yoyoyo')
-	printIt(charList)
+	# printIt(charList)

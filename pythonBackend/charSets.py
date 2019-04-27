@@ -1,4 +1,4 @@
-jonSet = { 'jon', 'jon snow', 'aegon', 'king of the north', 'king of the norf' }
+jonSet = { 'jon snow', 'aegon', 'king of the north', 'king of the norf' }
 danySet = {'daenerys', 'dany', 'khaleesi', 'mother of dragons', 'breaker of chains'}
 cerseiSet = {'cersei', 'cersei lannister', 'mad queen'}
 aryaSet = {'arya', 'arya stark'}
