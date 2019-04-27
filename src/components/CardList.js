@@ -23,7 +23,7 @@ let characters = {
   Theon: ["./theonHappy.gif", "./theonNeutral.gif", "./theonSad.gif"],
   Brienne: ["./brienneHappy.gif", "./brienneNeutral.gif", "./brienneSad.gif"],
   Gendry: ["./gendryHappy.gif", "./gendryNeutral.gif", "./gendrySad.gif"],
-  "Grey Worm": ["./gendryHappy.gif", "./gendryNeutral.gif", "./gendrySad.gif"]
+  "Grey Worm": ["./grey.gif", "./grey.gif", "./grey.gif"]
   // Donald: ["./donaldHappy.gif", "./donaldNeutral.gif", "./donaldSad.gif"]
 };
 
