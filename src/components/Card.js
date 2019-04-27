@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Reward from "react-rewards";
 import Firebase from "firebase";
 import { HAPPY_FLOOR, SAD_CEILING } from "../utils/constants";
+import Trend from "react-trend";
 
 const container = {
   display: "flex",
@@ -48,6 +49,7 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
+      data: [0],
       sentiment: ""
     };
   }
@@ -64,11 +66,13 @@ class Card extends Component {
       console.log(`${this.props.name}:`, charVals);
       // get current state sentiment to compare to updated sentiment
       const prevState = this.state.sentiment;
+      const data = this.state.data;
       this.setState(charVals, () => {
         // on callback, compare current sentiment to previous, "reward" if changed
         if (this.state.sentiment !== prevState) {
           this.reward.rewardMe();
         }
+        data.push(charVals.net);
       });
     });
   }
@@ -158,12 +162,12 @@ class Card extends Component {
           <h2 className={this.sentiment(this.state.sentiment)}>
             {this.state.sentiment}
           </h2>
-
           <h4>
             TWEETS <br />
             {this.state.total}
           </h4>
         </div>
+        <Trend data={this.state.data} />
       </div>
     );
   }
