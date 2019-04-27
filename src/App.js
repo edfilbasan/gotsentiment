@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import Trend from "react-trend";
 import CardList from "./components/CardList.js";
 import Header from "./components/Header.js";
 import { firebase_config } from "./utils/apiKey.js";

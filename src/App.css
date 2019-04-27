@@ -51,6 +51,15 @@ h4 {
   font-weight: 400;
   color: #6E6B68;
   letter-spacing: .1px;
+  margin: 0px;
+}
+
+h5 {
+  font-family: "Trajan Pro Regular";
+  font-size: 10px;
+  font-weight: 400;
+  color: #6E6B68;
+  letter-spacing: .1px;
   margin-bottom: 0px;
 }
 

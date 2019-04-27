@@ -33,7 +33,7 @@ const images = {
 };
 
 const titles = {
-  height: "30%",
+  width: "175px",
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
@@ -49,7 +49,7 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
-      data: [0],
+      data: [0, 20, -20],
       sentiment: ""
     };
   }
@@ -133,6 +133,7 @@ class Card extends Component {
     const sentimentImg = this.props.images[
       this.getImageIdx(this.state.sentiment)
     ];
+    console.log(`${this.props.name}:`, this.state.data);
     return (
       <div
         style={container}
@@ -162,12 +163,19 @@ class Card extends Component {
           <h2 className={this.sentiment(this.state.sentiment)}>
             {this.state.sentiment}
           </h2>
-          <h4>
-            TWEETS <br />
-            {this.state.total}
-          </h4>
+          <h5>TWEETS</h5>
+          <h4>{this.state.total}</h4>
+          <div style={{ paddingRight: "20px" }}>
+            <Trend
+              smooth
+              data={this.state.data}
+              gradient={["#00c6ff", "#F0F", "#FF0"]}
+              radius={30}
+              strokeWidth={6}
+              strokeLinecap={"round"}
+            />
+          </div>
         </div>
-        <Trend data={this.state.data} />
       </div>
     );
   }
