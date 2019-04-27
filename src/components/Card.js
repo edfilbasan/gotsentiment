@@ -49,7 +49,7 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
-      data: [0, 20, -20],
+      data: [0],
       sentiment: ""
     };
   }
