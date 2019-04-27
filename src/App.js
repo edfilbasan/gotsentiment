@@ -10,8 +10,6 @@ import Firebase from "firebase";
 Firebase.initializeApp(firebase_config);
 
 class GotSentiment extends Component {
-
-
   render() {
     return (
       <div>
