@@ -59,7 +59,14 @@ class Card extends Component {
   }
 
   onDataChange(name) {
-    const charRef = Firebase.database().ref("/characters/" + name);
+    let newName = name;
+    if (name === "grey worm") {
+      newName = "greyworm";
+    }
+    if (name === "the hound") {
+      newName = "thehound";
+    }
+    const charRef = Firebase.database().ref("/characters/" + newName);
     charRef.on("value", snapshot => {
       let charVals = snapshot.val();
       if (charVals == null) {
