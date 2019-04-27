@@ -49,7 +49,7 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
-      data: [0],
+      data: [1,-1, 0],
       sentiment: ""
     };
   }
@@ -75,7 +75,9 @@ class Card extends Component {
         if (this.state.sentiment !== prevState) {
           this.reward.rewardMe();
         }
-        data.push(charVals.net);
+        if(charVals != null && charVals.net != null){
+          data.push(charVals.net);
+        }
       });
     });
   }

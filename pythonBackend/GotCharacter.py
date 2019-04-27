@@ -36,6 +36,7 @@ def decrement_votes(current_value):
 # 	else:
 # 		return jaimeLock
 
+
 class GotCharacter():
 	ref = ""
 	net = 0
@@ -46,10 +47,12 @@ class GotCharacter():
 
 	name = ""
 	keywords = {}
+	shouldDecay = False;
 
 	def __init__(self, ref, name, keywords):
 		self.name = name
 		self.ref = ref
+		self.shouldDecay = False;
 		try:
 			self.net = 	init_value(ref.child('net').get())
 			self.positive = init_value(ref.child('positive').get())
@@ -115,6 +118,12 @@ class GotCharacter():
 			except Exception as e:
 				print(e)
 				print("netDecay exception")
+
+	def checkDecay(charList):
+		if(self.decayTimerStarted):
+			threading.Timer(30.0, printIt, [charList]).start()
+			for char in charList:
+				char.netDecay()
 
 	def printStatus(self):
 		print("\n");

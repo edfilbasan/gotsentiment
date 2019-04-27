@@ -96,10 +96,16 @@ if __name__ == "__main__":
 	branChar = GotCharacter(charRef.child("bran"), "Bran", charSets.branSet)
 	tyrionChar = GotCharacter(charRef.child("tyrion"), "Tyrion", charSets.tyrionSet)
 	jaimeChar = GotCharacter(charRef.child("jaime"), "Jaime", charSets.jaimeSet)
+	brienneChar = GotCharacter(charRef.child("brienne"), "Brienne", charSets.brienneSet)
+	gendryChar = GotCharacter(charRef.child("gendry"), "Gendry", charSets.gendrySet)
+	tormundChar = GotCharacter(charRef.child("tormund"), "Tormund", charSets.tormundSet)
+	theonChar = GotCharacter(charRef.child("theon"), "Theon", charSets.theonSet)
+
 	# donaldChar = GotCharacter(charRef.child("donald"), "Donald", charSets.donaldSet)
 
 	# List of all characters to be tracked
-	charList = [cerseiChar, danyChar, jonChar, aryaChar, sansaChar, branChar, tyrionChar, jaimeChar]
+	charList = [cerseiChar, danyChar, jonChar, aryaChar, sansaChar, branChar, tyrionChar,
+	jaimeChar, brienneChar, gendryChar, tormundChar, theonChar]
 
 	#init thread to stream tweets and write to file
 	streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})

@@ -18,11 +18,11 @@ let characters = {
   Sansa: ["./sansaHappy.gif", "./sansaNeutral.gif", "./sansaSad.gif"],
   Bran: ["./branHappy.gif", "./branNeutral.gif", "./branSad.gif"],
   Tyrion: ["./tyrionHappy.gif", "./tyrionNeutral.gif", "./tyrionSad.gif"],
-  Jaime: ["./jaimeHappy.gif", "./jaimeNeutral.gif", "./jaimeSad.gif"]
-  // Tormund: ["./tormundHappy.gif", "./tormundNeutral.gif", "./tormundSad.gif"],
-  // Theon: ["./theonHappy.gif", "./theonNeutral.gif", "./theonSad.gif"],
-  // Brienne: ["./brienneHappy.gif", "./brienneNeutral.gif", "./brienneSad.gif"],
-  // Gendry: ["./gendryHappy.gif", "./gendryNeutral.gif", "./gendrySad.gif"],
+  Jaime: ["./jaimeHappy.gif", "./jaimeNeutral.gif", "./jaimeSad.gif"],
+  Tormund: ["./tormundHappy.gif", "./tormundNeutral.gif", "./tormundSad.gif"],
+  Theon: ["./theonHappy.gif", "./theonNeutral.gif", "./theonSad.gif"],
+  Brienne: ["./brienneHappy.gif", "./brienneNeutral.gif", "./brienneSad.gif"],
+  Gendry: ["./gendryHappy.gif", "./gendryNeutral.gif", "./gendrySad.gif"],
   // Donald: ["./donaldHappy.gif", "./donaldNeutral.gif", "./donaldSad.gif"]
 };
 

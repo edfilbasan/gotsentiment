@@ -1,15 +1,20 @@
 jonSet = { 'jon snow', 'aegon', 'king of the north', 'king of the norf' }
 danySet = {'daenerys', 'dany', 'khaleesi', 'mother of dragons', 'breaker of chains'}
 cerseiSet = {'cersei', 'cersei lannister', 'mad queen'}
-aryaSet = {'arya', 'arya stark'}
-sansaSet = {'sansa', 'sansa stark'}
+aryaSet = {'arya', 'aryastark'}
+sansaSet = {'sansa', 'sansastark'}
 branSet = {'bran', 'branstark', 'three eyed raven', 'three-eyed-raven', '3 eye raven', \
 	'three eye raven', 'three eye', '3 eyed raven'}
 tyrionSet = {'tyrion', 'tyrionlannister'}
 jaimeSet = {'jaime', 'jamielannister', 'kingslayer'}
+theonSet = {'theon', 'reek', 'theongreyjoy', 'greyjoy', 'ironborn'}
+tormundSet = {'tormund', 'giant\'s bane', 'giantsbane'}
+brienneSet = {'brienne', 'tarth', 'brienneoftarth', 'ser brienne', 'serbrienne'}
+gendrySet = {'gendry'}
 donaldSet = {'trump', 'donald trump', 'MAGA', 'President'}
 
 thronesSet = {'game of thrones', 'gameofthrones', 'thrones', 'a song of ice and fire', 'hbo'}
 
-filterSet = jonSet|danySet|cerseiSet|cerseiSet|aryaSet|sansaSet|branSet|tyrionSet|jaimeSet|thronesSet
+filterSet = jonSet|danySet|cerseiSet|cerseiSet|aryaSet|sansaSet|branSet| \
+	tyrionSet|jaimeSet|thronesSet| tormundSet | brienneSet | gendrySet
 
