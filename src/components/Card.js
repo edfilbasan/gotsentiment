@@ -91,11 +91,11 @@ class Card extends Component {
 
   getImageIdx(str) {
     switch (str) {
-      case "HAPPY":
+      case "POSITIVE":
         return 0;
       case "NEUTRAL":
         return 1;
-      case "SAD":
+      case "NEGATIVE":
         return 2;
       default:
         return 1;
