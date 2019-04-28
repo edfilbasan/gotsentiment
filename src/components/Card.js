@@ -104,7 +104,6 @@ class Card extends Component {
 
   getCharData(char) {
     if (char == null || char.net == null) {
-      g;
       return "NEUTRAL";
     }
     if (char != null) {
