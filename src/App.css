@@ -20,6 +20,15 @@ body {
   cursor: url(http://www.rw-designer.com/cursor-extern.php?id=5946), default;
 }
 
+a {
+  font-family: "Trajan Pro Regular";
+  text-align: left;
+  font-weight: 700;
+  font-size: 16px;
+  color: #407398;
+  margin: 0px;
+  text-decoration: none;
+}
 
 h1 {
   font-family: "Trajan Pro Regular";
@@ -30,7 +39,7 @@ h1 {
 
 h2 {
   font-family: "Trajan Pro Regular";
-  font-weight: "400";
+  font-weight: 700;
   font-size: 26px;
   color: #2C771B;
   letter-spacing: -0.79px;
@@ -40,7 +49,7 @@ h2 {
 h3 {
   font-family: "Game of Thrones", "Trajan Pro Regular";
   color: #272320;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: .5px;
   text-align: center;
@@ -50,7 +59,7 @@ h3 {
 h4 {
   font-family: "Trajan Pro Regular";
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 600;
   color: #6E6B68;
   letter-spacing: .1px;
   margin: 0px;
@@ -58,8 +67,8 @@ h4 {
 
 h5 {
   font-family: "Trajan Pro Regular";
-  font-size: 10px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 500;
   color: #6E6B68;
   letter-spacing: .1px;
   margin-bottom: 0px;

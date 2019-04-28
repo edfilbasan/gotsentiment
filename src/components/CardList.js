@@ -6,7 +6,8 @@ const list = {
   flexDirection: "row",
   flexWrap: "wrap",
   justifyContent: "center",
-  margin: "12px 1%"
+  margin: "12px 1%",
+  marginBottom: "40px"
 };
 
 let characters = {

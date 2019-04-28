@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import CardList from "./components/CardList.js";
 import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
 import { firebase_config } from "./utils/apiKey.js";
 import { tachyons } from "tachyons";
 import Firebase from "firebase";
@@ -15,6 +16,7 @@ class GotSentiment extends Component {
       <div>
         <Header />
         <CardList />
+        <Footer />
       </div>
     );
   }

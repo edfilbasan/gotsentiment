@@ -180,7 +180,7 @@ class Card extends Component {
           </h2>
           <h5>TWEETS</h5>
           <h4>{this.state.total}</h4>
-          <div style={{ paddingRight: "20px" }}>
+          <div style={{ paddingTop: "8px", paddingRight: "20px" }}>
             <Trend
               smooth
               data={this.state.data}
