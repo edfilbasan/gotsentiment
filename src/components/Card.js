@@ -49,7 +49,7 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
-      data: [0],
+      data: [],
       sentiment: ""
     };
   }
@@ -98,7 +98,7 @@ class Card extends Component {
       case "SAD":
         return 2;
       default:
-        return 2;
+        return 1;
     }
   }
 
@@ -165,13 +165,14 @@ class Card extends Component {
           type="emoji"
           config={{
             emoji: this.emoji(this.state.sentiment),
-            lifetime: 200,
+            lifetime: 150,
             spread: 40,
-            elementCount: 15,
+            elementCount: 12,
             elementSize: 32,
             springAnimation: true
           }}
         />
+
         <div style={titles}>
           <h3>{this.props.name}</h3>
           <h2 className={this.sentiment(this.state.sentiment)}>
@@ -183,7 +184,7 @@ class Card extends Component {
             <Trend
               smooth
               data={this.state.data}
-              gradient={["#00c6ff", "#F0F", "#FF0"]}
+              gradient={["#9C1212", "#747229", "#2C771B"]}
               radius={30}
               strokeWidth={6}
               strokeLinecap={"round"}

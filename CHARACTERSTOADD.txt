@@ -1,17 +1,20 @@
 CHARACTERSTOADD.txt
-tormund
-theon
-brienne
-grey worm
-jorah
-onion knight - davos
+tormund-  done
+theon -  done
+brienne -  done
+gendry -  done
+
+grey worm 
+the hound sandor clegane 
+jorah 
+** onion knight - davos **
+** podrick payne **
+** melissandre **
+** bronn **
+
 sam tarly
-melissandre
-the hound sandor clegane
 the mountain
 qyburn
-podrick payne
-gendry
 ghost -> awooooo
 drogon
 viseryon
