@@ -80,7 +80,7 @@ class Card extends Component {
       this.setState(charVals, () => {
         // on callback, compare current sentiment to previous, "reward" if changed
         if (this.state.sentiment !== prevState) {
-          // this.reward.rewardMe();
+          this.reward.rewardMe();
         }
         if (charVals != null && charVals.net != null) {
           data.push(charVals.net);
