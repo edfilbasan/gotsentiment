@@ -108,9 +108,9 @@ class Card extends Component {
     }
     if (char != null) {
       if (char.net > HAPPY_FLOOR) {
-        return "HAPPY";
+        return "POSITIVE";
       } else if (char.net < SAD_CEILING) {
-        return "SAD";
+        return "NEGATIVE";
       } else {
         return "NEUTRAL";
       }
@@ -119,11 +119,11 @@ class Card extends Component {
 
   sentiment = feel => {
     switch (feel) {
-      case "HAPPY":
+      case "POSITIVE":
         return "sentimentHappy";
       case "NEUTRAL":
         return "sentimentNeutral";
-      case "SAD":
+      case "NEGATIVE":
         return "sentimentSad";
       default:
         return "sentimentNeutral";
