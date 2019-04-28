@@ -1,4 +1,4 @@
-jonSet = { 'jon', 'jon snow', 'aegon', 'king of the north', 'king of the norf' }
+jonSet = { 'jon snow', 'aegon', 'king of the north', 'king of the norf' }
 danySet = {'daenerys', 'dany', 'khaleesi', 'mother of dragons', 'breaker of chains'}
 cerseiSet = {'cersei', 'cersei lannister', 'mad queen'}
 aryaSet = {'arya', 'aryastark'}
@@ -12,9 +12,9 @@ tormundSet = {'tormund', 'giant\'s bane', 'giantsbane'}
 brienneSet = {'brienne', 'tarth', 'brienneoftarth', 'ser brienne', 'briene', 'serbrienne'}
 gendrySet = {'gendry'}
 greywormSet = {'greyworm', 'grey worm'}
-houndSet = {'the hound', 'thehound', 'sandor', 'sandorclegane'}
+houndSet = {"the hound",'thehound', 'sandor', 'sandorclegane'}
 jorahSet = {'heartsbane', 'ser jorah', 'jorah', 'jorahmormont'}
-davosSet = {'davos', 'davosseaworth', 'onion knight', 'the onion knight'}
+davosSet = {'davos', 'davosseaworth', 'onion knight', 'the onion knight', 'onionknight'}
 podrickSet = {'podrick', 'podrickpayne'}
 melisandreSet = {'melisandre', 'the red woman', 'red woman', 'melissandre'}
 bronnSet = {'bronn', 'ser bronn', 'bron', 'bronnoftheblackwater'}

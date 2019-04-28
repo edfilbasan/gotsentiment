@@ -90,7 +90,7 @@ if __name__ == "__main__":
 	# Create character objects referencing character sentiments to be tracked
 	cerseiChar = GotCharacter(charRef.child("cersei"), "Cersei", charSets.cerseiSet)
 	danyChar = GotCharacter(charRef.child("daenerys"), "Dany", charSets.danySet)
-	jonChar = GotCharacter(charRef.child("jon"), "Jon", charSets.jonSet)
+	jonChar = GotCharacter(charRef.child("jon"), "Jon", charSets.jonSet | {'jon'})
 	aryaChar = GotCharacter(charRef.child("arya"), "Arya", charSets.aryaSet)
 	sansaChar = GotCharacter(charRef.child("sansa"), "Sansa", charSets.sansaSet)
 	branChar = GotCharacter(charRef.child("bran"), "Bran", charSets.branSet)

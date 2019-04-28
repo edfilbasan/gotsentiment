@@ -26,10 +26,19 @@ class TweetAnalyzer():
 		# 	file.write(self.clean_tweet(status.text))
 		# 	file.write("\n")
 		for char in self.charList:
-			if(not wordSet.isdisjoint(char.keywords)):
-				self.num += 1
-				# print("num sent to update character: " + str(self.num))
+			self.charMatch(char, tweetText)
+			# if(not wordSet.isdisjoint(char.keywords)):
+			# 	self.num += 1
+			# 	# print("num sent to update character: " + str(self.num))
+			# 	self.updateCharacter(char, self.get_tweet_sentiment(tweetText))
+		print("num sent to update character: " + str(self.num))
+
+	def charMatch(self, char, tweetText):
+		for keyword in char.keywords:
+			if(keyword in tweetText.lower()):
+				self.num+=1
 				self.updateCharacter(char, self.get_tweet_sentiment(tweetText))
+				break
 
 	def updateCharacter(self, char, sentiment):
 		if(sentiment== 'positive'):

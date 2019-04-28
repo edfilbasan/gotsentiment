@@ -66,6 +66,10 @@ class GotCharacter():
 			print(e)
 			print("GotCharacter init exception")
 
+	def checkData(name):
+		if(name=="The Hound"):
+			print("hound found")
+			self.printStatus()
 	def onPositive(self):
 		self.positive = self.positive+1
 		self.net = self.net+1
@@ -122,7 +126,7 @@ class GotCharacter():
 						self.startNegativeDecayTimer()
 					else:
 						pass
-					self.printStatus()
+					# self.printStatus()
 			except Exception as e:
 				print(e)
 				print("netDecay exception")
@@ -146,8 +150,8 @@ class GotCharacter():
 			except Exception as e:
 				print(e)
 				print("failed to decay from positive")
-			self.decayPosTimerStarted = False
-			self.checkDecay()
+		self.decayPosTimerStarted = False
+		self.checkDecay()
 
 	def decayNeg(self):
 		val = self.ref.child('net').get()
@@ -158,8 +162,8 @@ class GotCharacter():
 			except Exception as e:
 				print(e)
 				print('failed to decay from negative')
-			self.decayNegTimerStarted = False
-			self.checkDecay()
+		self.decayNegTimerStarted = False
+		self.checkDecay()
 
 	def printStatus(self):
 		print("\n");
