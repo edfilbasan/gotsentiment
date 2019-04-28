@@ -6,7 +6,6 @@ const container = {
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
-  alignItems: "center",
   backgroundColor: "#FBFBFB",
   boxShadow: "0px 3px 6px 0px rgba(0,0,0,0.15)",
   position: "static",
@@ -22,7 +21,8 @@ const headerText = {
   marginLeft: "8px",
   marginRight: "16px",
   height: "100%",
-  clear: "both"
+  clear: "both",
+  cursor: "pointer"
 };
 
 const headerTitle = {
@@ -61,13 +61,15 @@ const Header = () => {
         alt="ravenlogo"
         src="./ravenlogo.png"
         style={{
-          width: "56px",
-          height: "56px",
+          width: "64px",
+          height: "64px",
           margin: "auto 0px",
-          marginLeft: "16px"
+          marginLeft: "16px",
+          cursor: "pointer"
         }}
+        onClick={() => window.location.reload()}
       />
-      <div style={headerText}>
+      <div style={headerText} onClick={() => window.location.reload()}>
         <h3 style={headerTitle}>Game of Thrones</h3>
         <p style={headerSub}>
           How Twitter Feels About GOT Characters in Real Time

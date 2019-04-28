@@ -5,9 +5,9 @@ const list = {
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
-  // width: "100%",
   justifyContent: "center",
-  margin: "12px 1%"
+  margin: "12px 1%",
+  marginBottom: "40px"
 };
 
 let characters = {
