@@ -11,7 +11,7 @@ const container = {
   width: "359px",
   height: "200px",
   borderRadius: "8px",
-  backgroundColor: "white",
+  backgroundColor: "#FBFBFB",
   boxShadow: "0px 4px 8px 0px rgba(0,0,0,0.15)",
   margin: "20px 20px"
 };

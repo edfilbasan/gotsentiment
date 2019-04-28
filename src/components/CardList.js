@@ -7,7 +7,7 @@ const list = {
   flexWrap: "wrap",
   // width: "100%",
   justifyContent: "center",
-  margin: "1.5% 1.5%"
+  margin: "12px 1%"
 };
 
 let characters = {

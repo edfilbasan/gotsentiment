@@ -2,11 +2,12 @@ import React from "react";
 
 const container = {
   width: "100%",
-  height: "72px",
+  height: "92px",
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
-  backgroundColor: "white",
+  alignItems: "center",
+  backgroundColor: "#FBFBFB",
   boxShadow: "0px 3px 6px 0px rgba(0,0,0,0.15)",
   position: "static",
   margin: "0px 0px"
@@ -16,8 +17,10 @@ const headerText = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  alignItems: "center",
-  margin: "auto 0px 0px 40px",
+  alignItems: "flex-start",
+  margin: "auto 0px",
+  marginLeft: "8px",
+  marginRight: "16px",
   height: "100%",
   clear: "both"
 };
@@ -28,8 +31,9 @@ const headerTitle = {
 
 const headerSub = {
   fontFamily: "Trajan Pro",
+  textAlign: "left",
   fontWeight: "400",
-  fontSize: "16px",
+  fontSize: "14px",
   color: "#272320",
   margin: "4px 0px 0px 0px"
 };
@@ -53,9 +57,21 @@ const headerSub = {
 const Header = () => {
   return (
     <div style={container}>
+      <img
+        alt="ravenlogo"
+        src="./ravenlogo.png"
+        style={{
+          width: "56px",
+          height: "56px",
+          margin: "auto 0px",
+          marginLeft: "16px"
+        }}
+      />
       <div style={headerText}>
         <h3 style={headerTitle}>Game of Thrones</h3>
-        <p style={headerSub}> How Twitter Feels About GOT Characters </p>
+        <p style={headerSub}>
+          How Twitter Feels About GOT Characters in Real Time
+        </p>
       </div>
     </div>
   );

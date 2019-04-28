@@ -16,7 +16,7 @@ body {
   /* background-image: url("./styles/background.png");
   background-repeat: no-repeat;
   background-size: cover; */
-  background-color: #FFFFFC
+  background-color: #F6F7F8;
 }
 
 h1 {
@@ -71,19 +71,17 @@ h5 {
   margin-bottom: 2%;
 }
 
-.nameTitle {}
-
-.sentimentSad {
-  color: #9C1212;
+.sentimentHappy {
+  color: #3A7737;
   text-align: left;
 }
 
 .sentimentNeutral {
-  color: #747229;
+  color: #407398;
   text-align: left;
 }
 
-.sentimentHappy {
-  color: #2C771B;
+.sentimentSad {
+  color: #732727;
   text-align: left;
 }
