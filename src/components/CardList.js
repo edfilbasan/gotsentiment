@@ -5,7 +5,6 @@ const list = {
   display: "flex",
   flexDirection: "row",
   flexWrap: "wrap",
-  // width: "100%",
   justifyContent: "center",
   margin: "12px 1%"
 };

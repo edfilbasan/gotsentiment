@@ -50,7 +50,7 @@ class Card extends Component {
       positive: 0,
       total: 0,
       data: [],
-      sentiment: ""
+      sentiment: "NEUTRAL"
     };
   }
 
@@ -109,7 +109,7 @@ class Card extends Component {
     if (char != null) {
       if (char.net > HAPPY_FLOOR) {
         return "HAPPY";
-      } else if (char.net <= SAD_CEILING) {
+      } else if (char.net < SAD_CEILING) {
         return "SAD";
       } else {
         return "NEUTRAL";
@@ -184,7 +184,7 @@ class Card extends Component {
             <Trend
               smooth
               data={this.state.data}
-              gradient={["#9C1212", "#747229", "#2C771B"]}
+              gradient={["#732727", "#407398", "#3A7737"]}
               radius={30}
               strokeWidth={6}
               strokeLinecap={"round"}

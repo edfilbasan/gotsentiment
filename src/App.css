@@ -17,7 +17,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover; */
   background-color: #F6F7F8;
+  cursor: url(http://www.rw-designer.com/cursor-extern.php?id=5946), default;
 }
+
 
 h1 {
   font-family: "Trajan Pro Regular";
