@@ -7,7 +7,7 @@ const list = {
   flexWrap: "wrap",
   // width: "100%",
   justifyContent: "center",
-  margin: "2% 3%"
+  margin: "2% 1.5%"
 };
 
 let characters = {
@@ -23,6 +23,7 @@ let characters = {
   Theon: ["./theonHappy.gif", "./theonNeutral.gif", "./theonSad.gif"],
   Brienne: ["./brienneHappy.gif", "./brienneNeutral.gif", "./brienneSad.gif"],
   Gendry: ["./gendryHappy.gif", "./gendryNeutral.gif", "./gendrySad.gif"],
+  "Grey Worm": ["./grey.gif", "./grey.gif", "./grey.gif"]
   // Donald: ["./donaldHappy.gif", "./donaldNeutral.gif", "./donaldSad.gif"]
 };
 

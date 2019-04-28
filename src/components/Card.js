@@ -59,11 +59,18 @@ class Card extends Component {
   }
 
   onDataChange(name) {
-    const charRef = Firebase.database().ref("/characters/" + name);
+    let newName = name;
+    if (name === "grey worm") {
+      newName = "greyworm";
+    }
+    if (name === "the hound") {
+      newName = "thehound";
+    }
+    const charRef = Firebase.database().ref("/characters/" + newName);
     charRef.on("value", snapshot => {
       let charVals = snapshot.val();
-      if(charVals == null){
-        charVals = this.state
+      if (charVals == null) {
+        charVals = this.state;
       }
       charVals.sentiment = this.getCharData(charVals);
       console.log(`${this.props.name}:`, charVals);
@@ -75,7 +82,7 @@ class Card extends Component {
         if (this.state.sentiment !== prevState) {
           this.reward.rewardMe();
         }
-        if(charVals != null && charVals.net != null){
+        if (charVals != null && charVals.net != null) {
           data.push(charVals.net);
         }
       });
@@ -99,7 +106,7 @@ class Card extends Component {
     if (char == null || char.net == null) {
       return "NEUTRAL";
     }
-    if(char != null){
+    if (char != null) {
       if (char.net > HAPPY_FLOOR) {
         return "HAPPY";
       } else if (char.net <= SAD_CEILING) {
@@ -160,7 +167,7 @@ class Card extends Component {
             emoji: this.emoji(this.state.sentiment),
             lifetime: 200,
             spread: 40,
-            elementCount: 20,
+            elementCount: 15,
             elementSize: 32,
             springAnimation: true
           }}
