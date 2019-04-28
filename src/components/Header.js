@@ -33,7 +33,7 @@ const headerSub = {
   fontFamily: "Trajan Pro",
   textAlign: "left",
   fontWeight: "400",
-  fontSize: "1.5rem",
+  fontSize: "1.2rem",
   color: "#272320",
   margin: "4px 0px 0px 0px"
 };
@@ -71,9 +71,9 @@ const Header = () => {
       />{" "}
       <div style={headerText} onClick={() => window.location.reload()}>
         <h1 style={headerSub}>
-          How Twitter Feels About GOT Characters Right Now
-        </h1>
-      </div>
+          How Twitter Feels About GOT Characters Right Now{" "}
+        </h1>{" "}
+      </div>{" "}
     </div>
   );
 };
