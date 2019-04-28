@@ -30,6 +30,12 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  position: relative;
+  top: -2px;
+  text-decoration: underline;
+}
+
 h1 {
   font-family: "Trajan Pro Regular";
   font-weight: 400;
