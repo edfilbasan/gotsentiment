@@ -19,17 +19,26 @@ class TweetAnalyzer():
 	def analyze(self, tweetText):
 		# print( "Analyze this text: " + tweetText)
 		words = tweetText.split()
-		print(words)
+		# print(words)
 		lowerWords = [x.lower() for x in words]
 		wordSet = set(lowerWords)
 		# with open("afterEpisode2.txt", "a") as file:
 		# 	file.write(self.clean_tweet(status.text))
 		# 	file.write("\n")
 		for char in self.charList:
-			if(not wordSet.isdisjoint(char.keywords)):
-				self.num += 1
-				# print("num sent to update character: " + str(self.num))
+			self.charMatch(char, tweetText)
+			# if(not wordSet.isdisjoint(char.keywords)):
+			# 	self.num += 1
+			# 	# print("num sent to update character: " + str(self.num))
+			# 	self.updateCharacter(char, self.get_tweet_sentiment(tweetText))
+		print("num sent to update character: " + str(self.num))
+
+	def charMatch(self, char, tweetText):
+		for keyword in char.keywords:
+			if(keyword in tweetText.lower()):
+				self.num+=1
 				self.updateCharacter(char, self.get_tweet_sentiment(tweetText))
+				break
 
 	def updateCharacter(self, char, sentiment):
 		if(sentiment== 'positive'):
@@ -47,12 +56,12 @@ class TweetAnalyzer():
 		'''
 		# create TextBlob object of passed tweet text (this is where analysis happens)
 		analysis = TextBlob(self.clean_tweet(tweet))
-		print("THE TWEET")
-		print(tweet)
+		# print("THE TWEET")
+		# print(tweet)
 		pol_score = sia.polarity_scores(tweet)
-		print("pol score")
-		print(pol_score)
-		print(analysis.sentiment.polarity)
+		# print("pol score")
+		# print(pol_score)
+		# print(analysis.sentiment.polarity)
 		# set sentiment
 		if analysis.sentiment.polarity > 0:
 				return 'positive'
