@@ -2,7 +2,7 @@ import React from "react";
 
 const container = {
   width: "100%",
-  height: "8vh",
+  height: "72px",
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
@@ -31,7 +31,7 @@ const headerSub = {
   fontWeight: "400",
   fontSize: "16px",
   color: "#272320",
-  margin: "12px 0px 0px 0px"
+  margin: "4px 0px 0px 0px"
 };
 
 // const nav = {
