@@ -9,21 +9,21 @@ tyrionSet = {'tyrion', 'tyrionlannister'}
 jaimeSet = {'jaime', 'jamielannister', 'kingslayer'}
 theonSet = {'theon', 'reek', 'theongreyjoy', 'greyjoy', 'ironborn'}
 tormundSet = {'tormund', 'giant\'s bane', 'giantsbane'}
-brienneSet = {'brienne', 'tarth', 'brienneoftarth', 'ser brienne', 'serbrienne'}
+brienneSet = {'brienne', 'tarth', 'brienneoftarth', 'ser brienne', 'briene', 'serbrienne'}
 gendrySet = {'gendry'}
 greywormSet = {'greyworm', 'grey worm'}
 houndSet = {'the hound', 'thehound', 'sandor', 'sandorclegane'}
 jorahSet = {'heartsbane', 'ser jorah', 'jorah', 'jorahmormont'}
 davosSet = {'davos', 'davosseaworth', 'onion knight', 'the onion knight'}
 podrickSet = {'podrick', 'podrickpayne'}
-melissandreSet = {'melissandre', 'the red woman', 'red woman'}
-bronnSet = {'bronn', 'ser bronn', 'bronnoftheblackwater'}
+melisandreSet = {'melisandre', 'the red woman', 'red woman', 'melissandre'}
+bronnSet = {'bronn', 'ser bronn', 'bron', 'bronnoftheblackwater'}
 donaldSet = {'trump', 'donald trump', 'MAGA', 'President'}
 
 thronesSet = {'game of thrones', 'gameofthrones', 'thrones', 'a song of ice and fire'}
 
 filterSet = cerseiSet|danySet|jonSet|aryaSet|sansaSet|branSet| \
 	tyrionSet|jaimeSet| brienneSet | gendrySet | tormundSet| theonSet | \
-	greywormSet | houndSet | jorahSet | davosSet | podrickSet | melissandreSet | \
+	greywormSet | houndSet | jorahSet | davosSet | podrickSet | melisandreSet | \
 	bronnSet | thronesSet
 

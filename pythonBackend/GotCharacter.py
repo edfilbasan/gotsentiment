@@ -47,12 +47,14 @@ class GotCharacter():
 
 	name = ""
 	keywords = {}
-	shouldDecay = False;
+	decayPosTimerStarted = False
+	decayNegTimerStarted = False
 
 	def __init__(self, ref, name, keywords):
 		self.name = name
 		self.ref = ref
-		self.shouldDecay = False;
+		self.decayPosTimerStarted = False
+		self.decayNegTimerStarted = False
 		try:
 			self.net = 	init_value(ref.child('net').get())
 			self.positive = init_value(ref.child('positive').get())
@@ -76,6 +78,7 @@ class GotCharacter():
 		except Exception as e:
 			print(e)
 			print("onPositive exception")
+		self.checkDecay()
 
 	def onNegative(self):
 		self.negative = self.negative+1
@@ -89,6 +92,7 @@ class GotCharacter():
 		except Exception as e:
 			print(repr(e))
 			print("onNegative exception")
+		self.checkDecay()
 
 	def onNeutral(self):
 		self.neutral = self.neutral+1
@@ -100,19 +104,22 @@ class GotCharacter():
 		except Exception as e:
 			print(e)
 			print("onNeutral exception")
+		self.checkDecay()
 
 	def checkDecay(self):
+		print('CHECK DECAY CALLED')
 		val = self.ref.child('net').get()
 		if(not val is None):
 			try:
 				# with getCharLock(self.name):
 					if(val > 0):
 						self.startPositiveDecayTimer()
-						self.ref.child('net').transaction(decrement_votes)
-						self.net = self.net-1
+						# self.ref.child('net').transaction(decrement_votes)
+						# self.net = self.net-1
 					elif(val<= -5) :
-						self.ref.child('net').transaction(increment_votes)
-						self.net = self.net+1
+						# self.ref.child('net').transaction(increment_votes)
+						# self.net = self.net+1
+						self.startNegativeDecayTimer()
 					else:
 						pass
 					self.printStatus()
@@ -120,11 +127,39 @@ class GotCharacter():
 				print(e)
 				print("netDecay exception")
 
-	def startPositiveDecayTimer(charList):
-		if(self.decayTimerStarted):
-			threading.Timer(5.0, printIt, [charList]).start()
-			for char in charList:
-				char.netDecay()
+	def startPositiveDecayTimer(self):
+		if(not self.decayPosTimerStarted):
+			self.decayPosTimerStarted = True
+			threading.Timer(5.0, self.decayPos).start()
+
+	def startNegativeDecayTimer(self):
+		if(not self.decayNegTimerStarted):
+			self.decayNegTimerStarted = True
+			threading.Timer(5.0, self.decayNeg).start()
+
+	def decayPos(self):
+		val = self.ref.child('net').get()
+		if(val > 0):
+			try:
+				self.ref.child('net').transaction(decrement_votes)
+				self.net = self.net-1
+			except Exception as e:
+				print(e)
+				print("failed to decay from positive")
+			self.decayPosTimerStarted = False
+			self.checkDecay()
+
+	def decayNeg(self):
+		val = self.ref.child('net').get()
+		if(val < -5):
+			try:
+				self.ref.child('net').transaction(increment_votes)
+				self.net = self.net+1
+			except Exception as e:
+				print(e)
+				print('failed to decay from negative')
+			self.decayNegTimerStarted = False
+			self.checkDecay()
 
 	def printStatus(self):
 		print("\n");

@@ -19,7 +19,7 @@ class TweetAnalyzer():
 	def analyze(self, tweetText):
 		# print( "Analyze this text: " + tweetText)
 		words = tweetText.split()
-		print(words)
+		# print(words)
 		lowerWords = [x.lower() for x in words]
 		wordSet = set(lowerWords)
 		# with open("afterEpisode2.txt", "a") as file:
@@ -47,12 +47,12 @@ class TweetAnalyzer():
 		'''
 		# create TextBlob object of passed tweet text (this is where analysis happens)
 		analysis = TextBlob(self.clean_tweet(tweet))
-		print("THE TWEET")
-		print(tweet)
+		# print("THE TWEET")
+		# print(tweet)
 		pol_score = sia.polarity_scores(tweet)
-		print("pol score")
-		print(pol_score)
-		print(analysis.sentiment.polarity)
+		# print("pol score")
+		# print(pol_score)
+		# print(analysis.sentiment.polarity)
 		# set sentiment
 		if analysis.sentiment.polarity > 0:
 				return 'positive'
