@@ -80,7 +80,7 @@ class Card extends Component {
       this.setState(charVals, () => {
         // on callback, compare current sentiment to previous, "reward" if changed
         if (this.state.sentiment !== prevState) {
-          this.reward.rewardMe();
+          // this.reward.rewardMe();
         }
         if (charVals != null && charVals.net != null) {
           data.push(charVals.net);
@@ -158,26 +158,27 @@ class Card extends Component {
           <img alt={sentimentImg} src={sentimentImg} style={images} />
         </div>
 
-        <Reward
-          ref={ref => {
-            this.reward = ref;
-          }}
-          type="emoji"
-          config={{
-            emoji: this.emoji(this.state.sentiment),
-            lifetime: 150,
-            spread: 40,
-            elementCount: 12,
-            elementSize: 32,
-            springAnimation: true
-          }}
-        />
-
         <div style={titles}>
           <h3>{this.props.name}</h3>
           <h2 className={this.sentiment(this.state.sentiment)}>
             {this.state.sentiment}
           </h2>
+
+          <Reward
+            ref={ref => {
+              this.reward = ref;
+            }}
+            type="emoji"
+            config={{
+              emoji: this.emoji(this.state.sentiment),
+              lifetime: 100,
+              spread: 45,
+              elementCount: 8,
+              elementSize: 40,
+              springAnimation: true
+            }}
+          />
+
           <h5>TWEETS</h5>
           <h4>{this.state.total}</h4>
           <div style={{ paddingTop: "8px", paddingRight: "20px" }}>
