@@ -120,7 +120,7 @@ class GotCharacter():
 						self.startPositiveDecayTimer()
 						# self.ref.child('net').transaction(decrement_votes)
 						# self.net = self.net-1
-					elif(val<= -5) :
+					elif(val<= -2) :
 						# self.ref.child('net').transaction(increment_votes)
 						# self.net = self.net+1
 						self.startNegativeDecayTimer()
@@ -134,12 +134,12 @@ class GotCharacter():
 	def startPositiveDecayTimer(self):
 		if(not self.decayPosTimerStarted):
 			self.decayPosTimerStarted = True
-			threading.Timer(5.0, self.decayPos).start()
+			threading.Timer(10.0, self.decayPos).start()
 
 	def startNegativeDecayTimer(self):
 		if(not self.decayNegTimerStarted):
 			self.decayNegTimerStarted = True
-			threading.Timer(5.0, self.decayNeg).start()
+			threading.Timer(10.0, self.decayNeg).start()
 
 	def decayPos(self):
 		val = self.ref.child('net').get()
