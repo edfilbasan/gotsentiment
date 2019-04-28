@@ -100,12 +100,20 @@ if __name__ == "__main__":
 	gendryChar = GotCharacter(charRef.child("gendry"), "Gendry", charSets.gendrySet)
 	tormundChar = GotCharacter(charRef.child("tormund"), "Tormund", charSets.tormundSet)
 	theonChar = GotCharacter(charRef.child("theon"), "Theon", charSets.theonSet)
-
+	greyWormChar = GotCharacter(charRef.child("greyworm"), "Grey Worm", charSets.greywormSet)
+	houndChar = GotCharacter(charRef.child("thehound"), "The Hound", charSets.houndSet)
+	jorahChar = GotCharacter(charRef.child("jorah"), "Jorah", charSets.jorahSet)
+	davosChar = GotCharacter(charRef.child("davos"), "Davos", charSets.davosSet)
+	podrickChar = GotCharacter(charRef.child("podrick"), "Podrick", charSets.podrickSet)
+	melissandreChar = GotCharacter(charRef.child("melissandre"), "Melissandre", charSets.melissandreSet)
+	bronnChar = GotCharacter(charRef.child("bronn"), "Bronn", charSets.bronnSet)
+	thronesChar = GotCharacter(charRef.child("thrones"), "Game of Thrones", charSets.thronesSet)
 	# donaldChar = GotCharacter(charRef.child("donald"), "Donald", charSets.donaldSet)
 
 	# List of all characters to be tracked
 	charList = [cerseiChar, danyChar, jonChar, aryaChar, sansaChar, branChar, tyrionChar,
-	jaimeChar, brienneChar, gendryChar, tormundChar, theonChar]
+	jaimeChar, brienneChar, gendryChar, tormundChar, theonChar, greyWormChar, houndChar, 
+	jorahChar, davosChar, podrickChar, melissandreChar, bronnChar, thronesChar]
 
 	#init thread to stream tweets and write to file
 	streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})

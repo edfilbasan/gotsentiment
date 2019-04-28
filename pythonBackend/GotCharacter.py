@@ -1,4 +1,4 @@
-# import threading
+import threading
 
 def init_value(num):
 	return num if num else 0
@@ -101,12 +101,13 @@ class GotCharacter():
 			print(e)
 			print("onNeutral exception")
 
-	def netDecay(self):
+	def checkDecay(self):
 		val = self.ref.child('net').get()
 		if(not val is None):
 			try:
 				# with getCharLock(self.name):
 					if(val > 0):
+						self.startPositiveDecayTimer()
 						self.ref.child('net').transaction(decrement_votes)
 						self.net = self.net-1
 					elif(val<= -5) :
@@ -119,9 +120,9 @@ class GotCharacter():
 				print(e)
 				print("netDecay exception")
 
-	def checkDecay(charList):
+	def startPositiveDecayTimer(charList):
 		if(self.decayTimerStarted):
-			threading.Timer(30.0, printIt, [charList]).start()
+			threading.Timer(5.0, printIt, [charList]).start()
 			for char in charList:
 				char.netDecay()
 
