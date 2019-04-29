@@ -110,9 +110,9 @@ class Card extends Component {
       return "NEUTRAL";
     }
     if (char != null) {
-      if (char.net > HAPPY_FLOOR) {
+      if (char.net >= HAPPY_FLOOR) {
         return "POSITIVE";
-      } else if (char.net < SAD_CEILING) {
+      } else if (char.net <= SAD_CEILING) {
         return "NEGATIVE";
       } else {
         return "NEUTRAL";
