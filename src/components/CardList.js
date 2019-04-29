@@ -21,12 +21,14 @@ let characters = {
   Tyrion: ["./tyrionHappy.gif", "./tyrionNeutral.gif", "./tyrionSad.gif"],
   Jaime: ["./jaimeHappy.gif", "./jaimeNeutral.gif", "./jaimeSad.gif"],
   Tormund: ["./tormundHappy.gif", "./tormundNeutral.gif", "./tormundSad.gif"],
-  Theon: ["./theonHappy.gif", "./theonNeutral.gif", "./theonSad.gif"],
+  //F
+  // Theon: ["./theonHappy.gif", "./theonNeutral.gif", "./theonSad.gif"],
   Brienne: ["./brienneHappy.gif", "./brienneNeutral.gif", "./brienneSad.gif"],
   Gendry: ["./gendryHappy.gif", "./gendryNeutral.gif", "./gendrySad.gif"],
   "Grey Worm": ["./grey.gif", "./grey.gif", "./grey.gif"],
   "The Hound": ["./houndHappy.gif", "./houndNeutral.gif", "./houndSad.gif"],
-  Jorah: ["./jorahHappy.gif", "./jorahNeutral.gif", "./jorahSad.gif"],
+  //F
+  // Jorah: ["./jorahHappy.gif", "./jorahNeutral.gif", "./jorahSad.gif"],
   Davos: ["./davosHappy.gif", "./davosNeutral.gif", "./davosSad.gif"],
   Podrick: ["./podrickHappy.gif", "./podrickNeutral.gif", "./podrickSad.gif"],
   Bronn: ["./bronnHappy.gif", "./bronnNeutral.gif", "./bronnSad.gif"],
