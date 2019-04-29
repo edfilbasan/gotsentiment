@@ -137,9 +137,9 @@ class Card extends Component {
     switch (feel) {
       case "POSITIVE":
         return ["😃", "💯", "🎉"];
-      case "NEGATIVE":
-        return ["😐", "😌", "🆗"];
       case "NEUTRAL":
+        return ["😐", "😌", "🆗"];
+      case "NEGATIVE":
         return ["😭", "😔", "😟"];
       default:
         return ["😐", "😌", "🆗"];
