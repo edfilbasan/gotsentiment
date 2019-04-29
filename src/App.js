@@ -20,6 +20,7 @@ class GotSentiment extends Component {
       </div>
     );
   }
+  g;
 }
 
 export default GotSentiment;
