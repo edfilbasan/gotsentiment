@@ -135,11 +135,11 @@ class Card extends Component {
 
   emoji = feel => {
     switch (feel) {
-      case "HAPPY":
+      case "POSITIVE":
         return ["😃", "💯", "🎉"];
-      case "NEUTRAL":
+      case "NEGATIVE":
         return ["😐", "😌", "🆗"];
-      case "SAD":
+      case "NEUTRAL":
         return ["😭", "😔", "😟"];
       default:
         return ["😐", "😌", "🆗"];
