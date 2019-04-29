@@ -7,7 +7,6 @@ import { firebase_config } from "./utils/apiKey.js";
 import { tachyons } from "tachyons";
 import Firebase from "firebase";
 
-// Initialize Firebase
 Firebase.initializeApp(firebase_config);
 
 class GotSentiment extends Component {
@@ -15,7 +14,6 @@ class GotSentiment extends Component {
     return (
       <div>
         <Header />
-        <h1 style={{ textAlign: "center" }}>STATUS: STOPPED</h1>
         <CardList />
         <Footer />
       </div>
