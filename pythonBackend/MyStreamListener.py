@@ -24,7 +24,7 @@ class MyStreamListener(tweepy.StreamListener):
 					self.tweet["id"] = id
 					self.tweet["sequence"] = self.idSelf
 					self.tweet["created_at"] = created_at
-					with open('#testThread5.csv', 'a', newline='') as csv_file:
+					with open('#testThread7.csv', 'a', newline='') as csv_file:
 						writer = csv.DictWriter(csv_file, self.tweet.keys())
 						writer.writerow(self.tweet)
 			except Exception as e:

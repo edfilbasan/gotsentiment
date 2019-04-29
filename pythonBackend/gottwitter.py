@@ -80,7 +80,7 @@ def printIt(charList):
 
 if __name__ == "__main__":
 	# file to save and read from
-	fileName = "#testThread5.csv"
+	fileName = "#testThread7.csv"
 
 	if not os.path.exists(fileName):
 		open(fileName, 'w').close()

@@ -84,6 +84,9 @@ class Card extends Component {
         }
         if (charVals != null && charVals.net != null) {
           data.push(charVals.net);
+          if(data.length>10){
+            data.shift()
+          }
         }
       });
     });
