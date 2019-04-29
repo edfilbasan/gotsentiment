@@ -11,6 +11,7 @@ const list = {
 };
 
 let characters = {
+  Thrones: ["./thronesHappy.gif", "./thronesNeutral.gif", "./thronesSad.gif"],
   Jon: ["./jonHappy.gif", "./jonNeutral.gif", "./jonSad.gif"],
   Daenerys: ["./danyHappy.gif", "./danyNeutral.gif", "./danySad.gif"],
   Cersei: ["./cerseiHappy.gif", "./cerseiNeutral.gif", "./cerseiSad.gif"],
@@ -33,8 +34,7 @@ let characters = {
     "./melisandreHappy.gif",
     "./melisandreNeutral.gif",
     "./melisandreSad.gif"
-  ],
-  Thrones: ["./thronesHappy.gif", "./thronesNeutral.gif", "./thronesSad.gif"]
+  ]
   // Donald: ["./donaldHappy.gif", "./donaldNeutral.gif", "./donaldSad.gif"]
 };
 

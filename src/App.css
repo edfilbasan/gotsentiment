@@ -80,6 +80,15 @@ h5 {
   margin-bottom: 0px;
 }
 
+h6 {
+  font-family: "Trajan Pro Regular";
+  font-size: 8px;
+  font-weight: 500;
+  color: #6E6B68;
+  letter-spacing: .1px;
+  margin-bottom: 0px;
+}
+
 .header {
   display: flex;
   flex-direction: column;

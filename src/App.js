@@ -15,6 +15,9 @@ class GotSentiment extends Component {
     return (
       <div>
         <Header />
+        <h1 style={{ textAlign: "center" }}>
+          All data will be reset 8:45PM EST for S8x03 launch.
+        </h1>
         <CardList />
         <Footer />
       </div>
