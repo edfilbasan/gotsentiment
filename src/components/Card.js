@@ -84,7 +84,7 @@ class Card extends Component {
         }
         if (charVals != null && charVals.net != null) {
           data.push(charVals.net);
-          if(data.length>10){
+          if(data.length>100){
             data.shift()
           }
         }
@@ -193,6 +193,9 @@ class Card extends Component {
               strokeWidth={6}
               strokeLinecap={"round"}
             />
+            <p>
+              Past {this.state.data.length} Tweets
+            </p>
           </div>
         </div>
       </div>
