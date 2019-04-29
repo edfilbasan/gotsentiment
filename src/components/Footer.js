@@ -15,7 +15,7 @@ const container = {
 
 const headerSub = {
   fontFamily: "Trajan Pro",
-  textAlign: "left",
+  textAlign: "center",
   fontWeight: "400",
   fontSize: "16px",
   color: "#272320",

@@ -25,15 +25,15 @@ const headerText = {
   cursor: "pointer"
 };
 
-const headerTitle = {
-  margin: "0px 0px"
-};
+// const headerTitle = {
+//   margin: "0px 0px"
+// };
 
 const headerSub = {
   fontFamily: "Trajan Pro",
   textAlign: "left",
   fontWeight: "400",
-  fontSize: "14px",
+  fontSize: "1.2rem",
   color: "#272320",
   margin: "4px 0px 0px 0px"
 };
@@ -68,15 +68,16 @@ const Header = () => {
           cursor: "pointer"
         }}
         onClick={() => window.location.reload()}
-      />
+      />{" "}
       <div style={headerText} onClick={() => window.location.reload()}>
-        <h3 style={headerTitle}>Game of Thrones</h3>
-        <p style={headerSub}>
-          How Twitter Feels About GOT Characters in Real Time
-        </p>
-      </div>
+        <h1 style={headerSub}>
+          How Twitter Feels About GOT Characters Right Now{" "}
+        </h1>{" "}
+      </div>{" "}
     </div>
   );
 };
 
 export default Header;
+
+// <h3 style={headerTitle}>Game of Thrones</h3>
