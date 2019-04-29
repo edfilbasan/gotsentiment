@@ -1,16 +1,16 @@
 {
-  "main.css": "/gotsentiment/static/css/main.91c52f9d.chunk.css",
-  "main.js": "/gotsentiment/static/js/main.ff3041fc.chunk.js",
-  "main.js.map": "/gotsentiment/static/js/main.ff3041fc.chunk.js.map",
+  "main.css": "/gotsentiment/static/css/main.1a70e60f.chunk.css",
+  "main.js": "/gotsentiment/static/js/main.aacaa63e.chunk.js",
+  "main.js.map": "/gotsentiment/static/js/main.aacaa63e.chunk.js.map",
   "runtime~main.js": "/gotsentiment/static/js/runtime~main.4bd5f926.js",
   "runtime~main.js.map": "/gotsentiment/static/js/runtime~main.4bd5f926.js.map",
   "static/css/2.4bcaad87.chunk.css": "/gotsentiment/static/css/2.4bcaad87.chunk.css",
   "static/js/2.8a41b8c8.chunk.js": "/gotsentiment/static/js/2.8a41b8c8.chunk.js",
   "static/js/2.8a41b8c8.chunk.js.map": "/gotsentiment/static/js/2.8a41b8c8.chunk.js.map",
   "index.html": "/gotsentiment/index.html",
-  "precache-manifest.d206bfedbe129b11bd90157f958edd9d.js": "/gotsentiment/precache-manifest.d206bfedbe129b11bd90157f958edd9d.js",
+  "precache-manifest.6b8faa52b569be1bfe31dc41d2ffdcec.js": "/gotsentiment/precache-manifest.6b8faa52b569be1bfe31dc41d2ffdcec.js",
   "service-worker.js": "/gotsentiment/service-worker.js",
   "static/css/2.4bcaad87.chunk.css.map": "/gotsentiment/static/css/2.4bcaad87.chunk.css.map",
-  "static/css/main.91c52f9d.chunk.css.map": "/gotsentiment/static/css/main.91c52f9d.chunk.css.map",
+  "static/css/main.1a70e60f.chunk.css.map": "/gotsentiment/static/css/main.1a70e60f.chunk.css.map",
   "static/media/App.css": "/gotsentiment/static/media/Trajan Pro Regular.b11f35f7.ttf"
 }
