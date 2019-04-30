@@ -12,15 +12,15 @@ self.__precacheManifest = [
     "url": "/gotsentiment/static/js/runtime~main.4bd5f926.js"
   },
   {
-    "revision": "f481a94fe790cd4f3ffb",
-    "url": "/gotsentiment/static/js/main.2ef5813e.chunk.js"
+    "revision": "c1320790ec2d2f4a7baa",
+    "url": "/gotsentiment/static/js/main.59a61a3c.chunk.js"
   },
   {
     "revision": "cff51fb3894f4fabf414",
     "url": "/gotsentiment/static/js/2.8a41b8c8.chunk.js"
   },
   {
-    "revision": "f481a94fe790cd4f3ffb",
+    "revision": "c1320790ec2d2f4a7baa",
     "url": "/gotsentiment/static/css/main.1a70e60f.chunk.css"
   },
   {
@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/gotsentiment/static/css/2.4bcaad87.chunk.css"
   },
   {
-    "revision": "a632f71f1279f28b4825c4ed013a43a0",
+    "revision": "6a84f8bf2681d0bd8986fad30510ee71",
     "url": "/gotsentiment/index.html"
   }
 ];
