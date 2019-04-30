@@ -49,7 +49,7 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
-      data: [],
+      data: [0],
       sentiment: "NEUTRAL"
     };
   }
@@ -150,7 +150,7 @@ class Card extends Component {
     const sentimentImg = this.props.images[
       this.getImageIdx(this.state.sentiment)
     ];
-    console.log(`${this.props.name}:`, this.state.data);
+    // console.log(`${this.props.name}:`, this.state.data);
     return (
       <div
         style={container}
