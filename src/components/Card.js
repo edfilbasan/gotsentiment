@@ -49,7 +49,7 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
-      data: [],
+      data: [0],
       sentiment: "NEUTRAL"
     };
   }
@@ -73,7 +73,7 @@ class Card extends Component {
         charVals = this.state;
       }
       charVals.sentiment = this.getCharData(charVals);
-      console.log(`${this.props.name}:`, charVals);
+      // console.log(`${this.props.name}:`, charVals);
       // get current state sentiment to compare to updated sentiment
       const prevState = this.state.sentiment;
       const data = this.state.data;
@@ -88,6 +88,7 @@ class Card extends Component {
             data.shift();
           }
         }
+        this.props.orderHandler(`${this.props.name}`, this.state.total);
       });
     });
   }
@@ -110,9 +111,9 @@ class Card extends Component {
       return "NEUTRAL";
     }
     if (char != null) {
-      if (char.net > HAPPY_FLOOR) {
+      if (char.net >= HAPPY_FLOOR) {
         return "POSITIVE";
-      } else if (char.net < SAD_CEILING) {
+      } else if (char.net <= SAD_CEILING) {
         return "NEGATIVE";
       } else {
         return "NEUTRAL";
@@ -135,11 +136,11 @@ class Card extends Component {
 
   emoji = feel => {
     switch (feel) {
-      case "HAPPY":
+      case "POSITIVE":
         return ["😃", "💯", "🎉"];
       case "NEUTRAL":
         return ["😐", "😌", "🆗"];
-      case "SAD":
+      case "NEGATIVE":
         return ["😭", "😔", "😟"];
       default:
         return ["😐", "😌", "🆗"];
@@ -150,7 +151,6 @@ class Card extends Component {
     const sentimentImg = this.props.images[
       this.getImageIdx(this.state.sentiment)
     ];
-    console.log(`${this.props.name}:`, this.state.data);
     return (
       <div
         style={container}

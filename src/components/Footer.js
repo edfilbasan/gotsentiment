@@ -9,7 +9,7 @@ const container = {
   backgroundColor: "#FBFBFB",
   boxShadow: "0px 0px 6px 0px rgba(0,0,0,0.15)",
   position: "relative",
-  bottom: "0px",
+  bottom: "0",
   margin: "0px 0px"
 };
 
@@ -22,7 +22,7 @@ const headerSub = {
   margin: "0px"
 };
 
-const Footer = props => {
+const Footer = () => {
   return (
     <div style={container}>
       <p style={headerSub}>

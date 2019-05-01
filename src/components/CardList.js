@@ -38,13 +38,56 @@ let characters = {
   // Donald: ["./donaldHappy.gif", "./donaldNeutral.gif", "./donaldSad.gif"]
 };
 
+let orderedCharacters = Object.keys(characters);
+
 class CardList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      Thrones: 0,
+      Jon: 0,
+      Daenerys: 0,
+      Cersei: 0,
+      Arya: 0,
+      Sansa: 0,
+      Bran: 0,
+      Tyrion: 0,
+      Jaime: 0,
+      Tormund: 0,
+      Theon: 0,
+      Brienne: 0,
+      Gendry: 0,
+      "Grey Worm": 0,
+      "The Hound": 0,
+      Jorah: 0,
+      Davos: 0,
+      Podrick: 0,
+      Bronn: 0,
+      Melisandre: 0
+    };
+
+    this.orderHandler = this.orderHandler.bind(this);
+  }
+
+  orderHandler(a, b) {
+    this.setState({ [a]: b });
+    let sorted = Object.keys(this.state);
+    sorted.sort((a, b) => this.state[b] - this.state[a]);
+    orderedCharacters = sorted;
+  }
+
   render() {
+    console.log(orderedCharacters);
     return (
       <div style={list}>
-        {Object.keys(characters).map((key, i) => {
+        {orderedCharacters.map((key, i) => {
           return (
-            <Card key={i} name={key} images={Object.values(characters)[i]} />
+            <Card
+              orderHandler={this.orderHandler}
+              key={i}
+              name={key}
+              images={Object.values(characters)[i]}
+            />
           );
         })}
       </div>
@@ -53,3 +96,14 @@ class CardList extends Component {
 }
 
 export default CardList;
+
+// {Object.keys(characters).map((key, i) => {
+//           return (
+//             <Card
+//               orderHandler={this.orderHandler}
+//               key={i}
+//               name={key}
+//               images={Object.values(characters)[i]}
+//             />
+//           );
+//         })}

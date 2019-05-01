@@ -7,7 +7,6 @@ import { firebase_config } from "./utils/apiKey.js";
 import { tachyons } from "tachyons";
 import Firebase from "firebase";
 
-// Initialize Firebase
 Firebase.initializeApp(firebase_config);
 
 class GotSentiment extends Component {
@@ -15,14 +14,17 @@ class GotSentiment extends Component {
     return (
       <div>
         <Header />
-        <h1 style={{ textAlign: "center" }}>
-          All data will be reset 8:45PM EST for S8x03 launch.
-        </h1>
+        <h3
+          style={{ textAlign: "center", color: "#732727", marginTop: "20px" }}
+        >
+          STATUS: OFFLINE
+        </h3>
         <CardList />
         <Footer />
       </div>
     );
   }
+  g;
 }
 
 export default GotSentiment;
