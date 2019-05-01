@@ -15,9 +15,9 @@ class GotSentiment extends Component {
       <div>
         <Header />
         <h3
-          style={{ textAlign: "center", color: "#3A7737", marginTop: "20px" }}
+          style={{ textAlign: "center", color: "#732727", marginTop: "20px" }}
         >
-          STATUS: LIVE
+          STATUS: OFFLINE
         </h3>
         <CardList />
         <Footer />
