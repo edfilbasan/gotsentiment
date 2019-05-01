@@ -38,7 +38,7 @@ let characters = {
   // Donald: ["./donaldHappy.gif", "./donaldNeutral.gif", "./donaldSad.gif"]
 };
 
-let orderedCharacters = [];
+let orderedCharacters = Object.keys(characters);
 
 class CardList extends Component {
   constructor(props) {
@@ -71,16 +71,16 @@ class CardList extends Component {
 
   orderHandler(a, b) {
     this.setState({ [a]: b });
-
     let sorted = Object.keys(this.state);
     sorted.sort((a, b) => this.state[b] - this.state[a]);
     orderedCharacters = sorted;
   }
 
   render() {
+    console.log(orderedCharacters);
     return (
       <div style={list}>
-        {Object.keys(characters).map((key, i) => {
+        {orderedCharacters.map((key, i) => {
           return (
             <Card
               orderHandler={this.orderHandler}
@@ -97,13 +97,13 @@ class CardList extends Component {
 
 export default CardList;
 
-// {this.state.order.map((key, i) => {
+// {Object.keys(characters).map((key, i) => {
 //           return (
 //             <Card
 //               orderHandler={this.orderHandler}
 //               key={i}
 //               name={key}
-//               images={Object.values(characters)}
+//               images={Object.values(characters)[i]}
 //             />
 //           );
 //         })}
