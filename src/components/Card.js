@@ -73,7 +73,7 @@ class Card extends Component {
         charVals = this.state;
       }
       charVals.sentiment = this.getCharData(charVals);
-      console.log(`${this.props.name}:`, charVals);
+      // console.log(`${this.props.name}:`, charVals);
       // get current state sentiment to compare to updated sentiment
       const prevState = this.state.sentiment;
       const data = this.state.data;
@@ -88,6 +88,7 @@ class Card extends Component {
             data.shift();
           }
         }
+        this.props.orderHandler(`${this.props.name}`, this.state.total);
       });
     });
   }
@@ -150,7 +151,6 @@ class Card extends Component {
     const sentimentImg = this.props.images[
       this.getImageIdx(this.state.sentiment)
     ];
-    // console.log(`${this.props.name}:`, this.state.data);
     return (
       <div
         style={container}
