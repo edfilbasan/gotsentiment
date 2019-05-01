@@ -88,7 +88,6 @@ class Card extends Component {
             data.shift();
           }
         }
-        this.props.orderHandler(`${this.props.name}`, this.state.total);
       });
     });
   }
