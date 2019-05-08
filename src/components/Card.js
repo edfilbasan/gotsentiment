@@ -49,13 +49,23 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
-      data: [0],
+      data: [],
       sentiment: "NEUTRAL"
     };
   }
 
+  pressF = e => {
+    const keyCode = e.keyCode;
+    if (keyCode === 70) {
+      if (this.props.alive === false) {
+        this.reward.rewardMe();
+      }
+    }
+  };
+
   componentDidMount() {
     this.onDataChange(this.props.name.toLowerCase());
+    document.addEventListener("keydown", this.pressF);
   }
 
   onDataChange(name) {
@@ -172,7 +182,9 @@ class Card extends Component {
             }}
             type="emoji"
             config={{
-              emoji: this.emoji(this.state.sentiment),
+              emoji: this.props.alive
+                ? this.emoji(this.state.sentiment)
+                : ["🙏", "🙇", "⚰️️", "✊"],
               lifetime: 100,
               spread: 45,
               elementCount: 8,
