@@ -22,7 +22,9 @@ class GotSentiment extends Component {
         </h3>
         <CardList />
         <h1 style={{ textAlign: "center", marginBottom: "0px" }}>
-          PRESS F TO PAY RESPECTS
+          PRESS{" "}
+          <strong style={{ fontWeight: "1000", color: "#407398" }}>F</strong> TO
+          PAY RESPECTS
         </h1>
         <CardListDead />
         <Footer />
