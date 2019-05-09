@@ -68,12 +68,12 @@ const Header = () => {
           cursor: "pointer"
         }}
         onClick={() => window.location.reload()}
-      />{" "}
+      />
       <div style={headerText} onClick={() => window.location.reload()}>
         <h1 style={headerSub}>
-          How Twitter Feels About GOT Characters Right Now{" "}
-        </h1>{" "}
-      </div>{" "}
+          How Twitter Feels About GOT Characters Right Now
+        </h1>
+      </div>
     </div>
   );
 };

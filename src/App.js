@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import CardList from "./components/CardList.js";
+import CardListDead from "./components/CardListDead.js";
 import Header from "./components/Header.js";
 import Footer from "./components/Footer.js";
 import { firebase_config } from "./utils/apiKey.js";
@@ -15,11 +16,24 @@ class GotSentiment extends Component {
       <div>
         <Header />
         <h3
-          style={{ textAlign: "center", color: "#732727", marginTop: "20px" }}
+          style={{ textAlign: "center", color: "#3A7737", marginTop: "20px" }}
         >
-          STATUS: OFFLINE
+          STATUS: ONLINE
         </h3>
         <CardList />
+        <h1 style={{ textAlign: "center", marginBottom: "0px" }}>
+          PRESS{" "}
+          <span
+            style={{
+              fontWeight: "1000",
+              color: "#407398"
+            }}
+          >
+            F
+          </span>{" "}
+          TO PAY RESPECTS
+        </h1>
+        <CardListDead />
         <Footer />
       </div>
     );
