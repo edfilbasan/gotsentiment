@@ -41,7 +41,7 @@ def initTweetStreaming():
 		myStreamListener = MyStreamListener()
 		try:
 			myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
-			myStream.filter(track=charSets.filterSet, stall_warnings=True, is_async=True, languages=["en"])
+			myStream.filter(track=charSets.filterSet, stall_warnings=True, is_async=True)
 		# various exception handling blocks
 		except KeyboardInterrupt:
 			sys.exit()
@@ -73,6 +73,29 @@ def initiator(que, fileName):
 			tweet = row[0]
 			que.put(tweet)
 	
+def processLine(filename, ta):
+	# self.idSelf += 1
+	# self.tweet["tweet"] = tweetText
+	# self.tweet["id"] = id
+	# self.tweet["sequence"] = self.idSelf
+	# self.tweet["created_at"] = created_at
+	# with open('#testThread10.csv', 'a', newline='') as csv_file:
+	# 	writer = csv.DictWriter(csv_file, self.tweet.keys())
+	# 	writer.writerow(self.tweet)
+	arr = filename.split('.')
+	newName = arr[0]+'Processed.'+arr[1]
+	with open(filename) as inf, open(newName, 'w', newline='') as outf:
+		csv_reader = csv.reader(inf)
+		csv_writer = csv.writer(outf)
+		for row in csv_reader:
+			print('yo')
+			if(len(row)>=1):
+				tweet = row[0]
+				print(row)
+				scores = ta.getPolarityScores(tweet)
+				csv_writer.writerow(row+scores)
+			else:
+				break
 
 # Get an item from the queue, pass to the tweet analyzer, and finally notify when complete
 def analyzeFromQueue(i, que, ta):
@@ -89,10 +112,7 @@ def printIt(charList):
 
 if __name__ == "__main__":
 	# file to save and read from
-	fileName = "#testThread10.csv"
-
-	if not os.path.exists(fileName):
-		open(fileName, 'w').close()
+	fileName = "collecteddata/duringEp4.csv"
 
 	#baseline character firebase DB reference
 	charRef = db.reference('characters')
@@ -124,21 +144,17 @@ if __name__ == "__main__":
 	jaimeChar, brienneChar, gendryChar, tormundChar, theonChar, greyWormChar, houndChar, 
 	jorahChar, davosChar, podrickChar, melisandreChar, bronnChar, thronesChar]
 
-	#init thread to stream tweets and write to file
-	streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})
-	if(not streamThread.is_alive()):
-			streamThread.start()
-
 	# init queue for tweets to be processed
-	tweetQueue = queue.Queue()
+	# tweetQueue = queue.Queue()
 	# init tweet analyzer
 	ta = TweetAnalyzer(charList)
 
 	# init workers that will analyze tweets found in the queue
-	for i in range(30):
-		worker = threading.Thread(target=analyzeFromQueue, args=(i,tweetQueue,ta))
-		worker.start()
+	# for i in range(30):
+	# 	worker = threading.Thread(target=analyzeFromQueue, args=(i,tweetQueue,ta))
+	# 	worker.start()
 	# Start populating the queue with tweets from the csv file
-	populateThread = threading.Thread(target=initiator, args=(tweetQueue, fileName), kwargs={})
-	if(not populateThread.is_alive()):
-		populateThread.start()
+	# populateThread = threading.Thread(target=initiator, args=(tweetQueue, fileName), kwargs={})
+	# if(not populateThread.is_alive()):
+	# 	populateThread.start()
+	processLine(fileName,ta)

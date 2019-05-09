@@ -63,30 +63,44 @@ class CardList extends Component {
       Davos: 0,
       Podrick: 0,
       Bronn: 0,
-      Melisandre: 0
+      Melisandre: 0,
+      order: Object.keys(characters)
     };
 
     this.orderHandler = this.orderHandler.bind(this);
   }
 
-  orderHandler(a, b) {
-    this.setState({ [a]: b });
-    let sorted = Object.keys(this.state);
-    sorted.sort((a, b) => this.state[b] - this.state[a]);
-    orderedCharacters = sorted;
+  orderHandler(name, total) {
+    console.log(this.state);
+    this.setState({ [name]: total }, () => {
+      let sorted = Object.keys(this.state);
+      let x = sorted.sort((a, b) => this.state[b] - this.state[a]);
+      console.log(sorted);
+      //this.setState({order: x})
+    //   orderedCharacters = sorted;
+    //   console.log(orderedCharacters);
+    //   console.log(name);
+    //   console.log(total);
+    //   console.log(this.state);
+    });
   }
 
   render() {
     console.log(orderedCharacters);
     return (
       <div style={list}>
-        {orderedCharacters.map((key, i) => {
+        {this.state.order.map((key, i) => {
+          if(key ==='order')
+            return;
+          console.log('render');
+          console.log(this.state.order);
+          console.log(key);
           return (
             <Card
               orderHandler={this.orderHandler}
               key={i}
               name={key}
-              images={Object.values(characters)[i]}
+              images={characters[key]}
             />
           );
         })}

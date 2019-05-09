@@ -18,12 +18,12 @@ davosSet = {'davos', 'davosseaworth', 'onion knight', 'the onion knight', 'onion
 podrickSet = {'podrick', 'podrickpayne'}
 melisandreSet = {'melisandre', 'the red woman', 'red woman', 'melissandre'}
 bronnSet = {'bronn', 'ser bronn', 'bron', 'bronnoftheblackwater'}
-donaldSet = {'trump', 'donald trump', 'MAGA', 'President'}
+# donaldSet = {'trump', 'donaldtrump', 'MAGA', 'President', 'POTUS'}
 
 thronesSet = {'game of thrones', 'gameofthrones', 'thrones', 'a song of ice and fire'}
 
 filterSet = cerseiSet|danySet|jonSet|aryaSet|sansaSet|branSet| \
 	tyrionSet|jaimeSet| brienneSet | gendrySet | tormundSet| theonSet | \
 	greywormSet | houndSet | jorahSet | davosSet | podrickSet | melisandreSet | \
-	bronnSet | thronesSet
+	bronnSet | thronesSet 
 

@@ -17,7 +17,7 @@ class TweetAnalyzer():
 		self.charList = charList
 
 	def analyze(self, tweetText):
-		# print( "Analyze this text: " + tweetText)
+		print( "Analyze this text: " + tweetText)
 		words = tweetText.split()
 		# print(words)
 		lowerWords = [x.lower() for x in words]
@@ -31,7 +31,21 @@ class TweetAnalyzer():
 			# 	self.num += 1
 			# 	# print("num sent to update character: " + str(self.num))
 			# 	self.updateCharacter(char, self.get_tweet_sentiment(tweetText))
-		print("num sent to update character: " + str(self.num))
+		# print("num sent to update character: " + str(self.num))
+
+	def getPolarityScores(self, tweetText):
+		print( "Analyze this text: " + tweetText)
+		words = tweetText.split()
+
+		analysis = TextBlob(self.clean_tweet(tweetText))
+		# print("THE TWEET")
+		# print(tweet)
+		pol_score = sia.polarity_scores(tweetText)
+		print("pol score")
+		print(pol_score)
+		print(analysis.sentiment.polarity)
+		# set sentiment
+		return [analysis.sentiment.polarity, pol_score];
 
 	def charMatch(self, char, tweetText):
 		for keyword in char.keywords:
@@ -40,13 +54,18 @@ class TweetAnalyzer():
 				self.updateCharacter(char, self.get_tweet_sentiment(tweetText))
 				break
 
+	# Update the given character with a sentiment datapoint. 
+	# Return the sentiment as a string value (commented out now)
 	def updateCharacter(self, char, sentiment):
 		if(sentiment== 'positive'):
 			char.onPositive()
+			# return 'positive' 
 		elif(sentiment == 'negative'):
 			char.onNegative()
+			# return 'negative'
 		else:
 			char.onNeutral()
+			# return 'neutral'
 		# char.printStatus()
 
 	def get_tweet_sentiment(self, tweet):
@@ -69,7 +88,7 @@ class TweetAnalyzer():
 				return 'neutral'
 		else:
 				return 'negative'
-				
+
 	def clean_tweet(self, tweet):
 		''' 
 		Utility function to clean tweet text by removing links, special characters 

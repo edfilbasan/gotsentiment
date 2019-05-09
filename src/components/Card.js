@@ -88,6 +88,8 @@ class Card extends Component {
             data.shift();
           }
         }
+        console.log('in card');
+        console.log(this.props.name);
         this.props.orderHandler(`${this.props.name}`, this.state.total);
       });
     });

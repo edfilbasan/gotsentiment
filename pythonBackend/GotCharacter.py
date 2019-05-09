@@ -111,7 +111,6 @@ class GotCharacter():
 		self.checkDecay()
 
 	def checkDecay(self):
-		print('CHECK DECAY CALLED')
 		val = self.ref.child('net').get()
 		if(not val is None):
 			try:
