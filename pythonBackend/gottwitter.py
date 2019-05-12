@@ -117,12 +117,12 @@ if __name__ == "__main__":
 	melisandreChar = GotCharacter(charRef.child("melisandre"), "Melisandre", charSets.melisandreSet)
 	bronnChar = GotCharacter(charRef.child("bronn"), "Bronn", charSets.bronnSet)
 	thronesChar = GotCharacter(charRef.child("thrones"), "Game of Thrones", charSets.thronesSet)
-	# donaldChar = GotCharacter(charRef.child("donald"), "Donald", charSets.donaldSet)
+	donaldChar = GotCharacter(charRef.child("donald"), "Donald", charSets.donaldSet)
 
 	# List of all characters to be tracked
 	charList = [cerseiChar, danyChar, jonChar, aryaChar, sansaChar, branChar, tyrionChar,
 	jaimeChar, brienneChar, gendryChar, tormundChar, theonChar, greyWormChar, houndChar, 
-	jorahChar, davosChar, podrickChar, melisandreChar, bronnChar, thronesChar]
+	jorahChar, davosChar, podrickChar, melisandreChar, bronnChar, thronesChar, donaldChar]
 
 	#init thread to stream tweets and write to file
 	streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})
@@ -138,6 +138,7 @@ if __name__ == "__main__":
 	for i in range(30):
 		worker = threading.Thread(target=analyzeFromQueue, args=(i,tweetQueue,ta))
 		worker.start()
+		
 	# Start populating the queue with tweets from the csv file
 	populateThread = threading.Thread(target=initiator, args=(tweetQueue, fileName), kwargs={})
 	if(not populateThread.is_alive()):

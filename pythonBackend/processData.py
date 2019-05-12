@@ -5,6 +5,10 @@ import threading
 import charSets
 import queue
 import os
+import datetime
+from timeit import default_timer as timer
+import time
+import math
 
 #import modules from local files
 from TwitterClient import TwitterClient
@@ -33,70 +37,74 @@ default_app = firebase_admin.initialize_app(cred, {
 # 	'databaseURL': 'https://gotbackup-985b7.firebaseio.com'
 # })
 
-
-# Begins streaming/saving tweets through the StreamListener object
-def initTweetStreaming():
-		# creating object of TwitterClient Class
-		api = TwitterClient()
-		myStreamListener = MyStreamListener()
-		try:
-			myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
-			myStream.filter(track=charSets.filterSet, stall_warnings=True, is_async=True)
-		# various exception handling blocks
-		except KeyboardInterrupt:
-			sys.exit()
-		except AttributeError as e:
-			print('AttributeError')
-			pass
-		except tweepy.TweepError as e:
-			print('Exception')
-			print(e)
-			if '401' in e:    
-				print('401 exception response')
-				print(e)
-				sleep(60)
-				pass
-			else:
-				#raise an exception if another status code was returned, we don't like other kinds
-				raise e
-		except Exception as e:
-			print('Unhandled exception')
-			raise e
-
-
-# Open the given file and add lines to the given queue
-def initiator(que, fileName):
-	csv_reader = csv.reader(FileWatcher(open(fileName)))
-	for row in csv_reader:
-		# print(row)
-		if(len(row)>=1):
-			tweet = row[0]
-			que.put(tweet)
-	
-def processLine(filename, ta):
-	# self.idSelf += 1
-	# self.tweet["tweet"] = tweetText
-	# self.tweet["id"] = id
-	# self.tweet["sequence"] = self.idSelf
-	# self.tweet["created_at"] = created_at
-	# with open('#testThread10.csv', 'a', newline='') as csv_file:
-	# 	writer = csv.DictWriter(csv_file, self.tweet.keys())
-	# 	writer.writerow(self.tweet)
+#passes lines from the file {filename} to the tweet analyzer ta,
+#writing the result of sentiment analysis at the end of the line
+def processLine(que, filename, ta):
 	arr = filename.split('.')
 	newName = arr[0]+'Processed.'+arr[1]
-	with open(filename) as inf, open(newName, 'w', newline='') as outf:
+	with open(filename, newline='') as inf, open(newName, 'w', newline='') as outf:
 		csv_reader = csv.reader(inf)
 		csv_writer = csv.writer(outf)
+		numtweet = 0
 		for row in csv_reader:
-			print('yo')
 			if(len(row)>=1):
 				tweet = row[0]
-				print(row)
 				scores = ta.getPolarityScores(tweet)
 				csv_writer.writerow(row+scores)
+				numtweet=numtweet+1
+				print(numtweet)
 			else:
 				break
 
+#passes lines from the file {filename} to the tweet analyzer ta,
+#for sentiment analysis at the rate of the tweets' timestamps 
+def timedProcessLine(que, filename):
+	arr = filename.split('.')
+	newName = arr[0]+'Processed.'+arr[1]
+	with open(filename, newline='') as inf, open(newName, 'w', newline='') as outf:
+		csv_reader = csv.reader(inf)
+		csv_writer = csv.writer(outf)
+		# time: runtime 1:30
+		row1 = next(csv_reader)
+		startDataMinutes = stampToMinutes(row1[3])
+		# print(startDataMinutes)
+		startCurrentMinutes = getCurrentMinutes()
+		# print(startCurrentMinutes)
+		start = timer()
+		numtweet = 0
+		for row in csv_reader:
+			if(len(row)>=1):
+
+				tweet = row[0]
+				print('Timestamp:' + row[3])
+				dataDiff = str(stampToMinutes(row[3])- startDataMinutes)
+				print('Diff from data start: ' + dataDiff)
+				current = timer()
+				timeDiff = str(math.floor((current - start)/60))
+				print('Diff from time start: ' + timeDiff)
+				while timeDiff<dataDiff:
+					current = timer()
+					timeDiff = str(math.floor((current - start)/60))
+					print('Diff from time start: ' + timeDiff)
+				time.sleep(0.01)
+				que.put(tweet)
+				numtweet=numtweet+1
+				# print(numtweet)
+			else:
+				break
+
+#turn data timestamp into total minutes
+def stampToMinutes(stamp):
+	dateArr = stamp.split()
+	timeArr = dateArr[1].split(':')
+	hour = int(timeArr[0],base=10)*60
+	dataMinutes = int(timeArr[1],base=10)+hour
+	return dataMinutes
+
+def getCurrentMinutes():
+	currentHour = int(datetime.datetime.now().strftime("%H"),base=10)*60
+	currentMinutes = int(datetime.datetime.now().strftime("%M"),base=10)+currentHour
+	return currentMinutes
 # Get an item from the queue, pass to the tweet analyzer, and finally notify when complete
 def analyzeFromQueue(i, que, ta):
 	while True:
@@ -104,6 +112,25 @@ def analyzeFromQueue(i, que, ta):
 		tweet = que.get()
 		ta.analyze(tweet)
 		que.task_done()
+
+numThrones = 0
+numGet = 0
+def analyzeFromCharQue(i, ta, char):
+	while True:
+		# print("%s: looking for next Thrones tweet" % i)
+		que = char.getQueue()
+		tweet = que.get()
+		# print("%s: got next Thrones tweet" % i)
+		# print("the tweet: " + tweet)
+		global numGet
+		numGet = numGet+1
+		print("num get from que: " + str(numGet))
+		char.updateCharacter(char.get_tweet_sentiment(tweet))
+		global numThrones
+		numThrones = numThrones+1
+		print("num analyzed from char que: " + str(numThrones))
+		que.task_done()
+
 
 def printIt(charList):
 	threading.Timer(30.0, printIt, [charList]).start()
@@ -145,16 +172,26 @@ if __name__ == "__main__":
 	jorahChar, davosChar, podrickChar, melisandreChar, bronnChar, thronesChar]
 
 	# init queue for tweets to be processed
-	# tweetQueue = queue.Queue()
+	tweetQueue = queue.Queue()
 	# init tweet analyzer
 	ta = TweetAnalyzer(charList)
 
 	# init workers that will analyze tweets found in the queue
-	# for i in range(30):
-	# 	worker = threading.Thread(target=analyzeFromQueue, args=(i,tweetQueue,ta))
-	# 	worker.start()
-	# Start populating the queue with tweets from the csv file
-	# populateThread = threading.Thread(target=initiator, args=(tweetQueue, fileName), kwargs={})
-	# if(not populateThread.is_alive()):
-	# 	populateThread.start()
-	processLine(fileName,ta)
+	# NEW -> init workers that will put tweets into char queues
+	for i in range(1):
+		worker = threading.Thread(target=analyzeFromQueue, args=(i,tweetQueue,ta))
+		worker.start()
+
+	for i in range(50):
+		throneWorker = threading.Thread(target=analyzeFromQueue, args=(i, tweetQueue, ta))
+		throneWorker.start()
+
+	#init workers that will analyze tweets in the thrones Queue
+	# for i in range(50):
+	# 	throneWorker = threading.Thread(target=analyzeFromCharQue, args=(i, ta, thronesChar))
+	# 	throneWorker.start()
+
+	# Start populating the root queue with tweets from the csv file
+	populateThread = threading.Thread(target=timedProcessLine, args=(tweetQueue, fileName), kwargs={})
+	if(not populateThread.is_alive()):
+		populateThread.start()
