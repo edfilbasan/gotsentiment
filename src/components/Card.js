@@ -91,7 +91,7 @@ class Card extends Component {
         if (this.state.sentiment !== prevState) {
           this.reward.rewardMe();
         }
-        console.log(this.state)
+        console.log(this.state);
       });
     });
   }
@@ -198,7 +198,7 @@ class Card extends Component {
               strokeWidth={6}
               strokeLinecap={"round"}
             />
-            <h6>Tweets since 8:50 EDT</h6>
+            <h6>Tweets since 8:30 EDT</h6>
             {/*<h6>Past {this.state.netArr.length*30-30} Seconds</h6>*/}
           </div>
         </div>
