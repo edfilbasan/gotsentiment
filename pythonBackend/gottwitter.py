@@ -19,11 +19,11 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 # Fetch the service account key JSON file
-cred = credentials.Certificate('gotsentiment-service-file.json')
+cred = credentials.Certificate('gotsentiment2-service-file.json')
 
 # Initialize the app with admin privileges
 default_app = firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://gotsentiment.firebaseio.com'
+    'databaseURL': 'https://gotsentiment2.firebaseio.com'
 })
 
 #backup firebase info
@@ -117,12 +117,13 @@ if __name__ == "__main__":
 	melisandreChar = GotCharacter(charRef.child("melisandre"), "Melisandre", charSets.melisandreSet)
 	bronnChar = GotCharacter(charRef.child("bronn"), "Bronn", charSets.bronnSet)
 	thronesChar = GotCharacter(charRef.child("thrones"), "Game of Thrones", charSets.thronesSet)
-	donaldChar = GotCharacter(charRef.child("donald"), "Donald", charSets.donaldSet)
+	euronChar = GotCharacter(charRef.child("euron"), "Euron", charSets.euronSet)
+	# donaldChar = GotCharacter(charRef.child("donald"), "Donald", charSets.donaldSet)
 
 	# List of all characters to be tracked
 	charList = [cerseiChar, danyChar, jonChar, aryaChar, sansaChar, branChar, tyrionChar,
 	jaimeChar, brienneChar, gendryChar, tormundChar, theonChar, greyWormChar, houndChar, 
-	jorahChar, davosChar, podrickChar, melisandreChar, bronnChar, thronesChar, donaldChar]
+	jorahChar, davosChar, podrickChar, melisandreChar, bronnChar, thronesChar, euronChar]
 
 	#init thread to stream tweets and write to file
 	streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})
@@ -138,7 +139,7 @@ if __name__ == "__main__":
 	for i in range(30):
 		worker = threading.Thread(target=analyzeFromQueue, args=(i,tweetQueue,ta))
 		worker.start()
-		
+
 	# Start populating the queue with tweets from the csv file
 	populateThread = threading.Thread(target=initiator, args=(tweetQueue, fileName), kwargs={})
 	if(not populateThread.is_alive()):

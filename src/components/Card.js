@@ -49,7 +49,7 @@ class Card extends Component {
       neutral: 0,
       positive: 0,
       total: 0,
-      data: [],
+      netArr: [],
       sentiment: "NEUTRAL"
     };
   }
@@ -86,18 +86,12 @@ class Card extends Component {
       // console.log(`${this.props.name}:`, charVals);
       // get current state sentiment to compare to updated sentiment
       const prevState = this.state.sentiment;
-      const data = this.state.data;
       this.setState(charVals, () => {
         // on callback, compare current sentiment to previous, "reward" if changed
         if (this.state.sentiment !== prevState) {
           this.reward.rewardMe();
         }
-        if (charVals != null && charVals.net != null) {
-          data.push(charVals.net);
-          if (data.length > 100) {
-            data.shift();
-          }
-        }
+        console.log(this.state)
       });
     });
   }
@@ -120,7 +114,7 @@ class Card extends Component {
       return "NEUTRAL";
     }
     if (char != null) {
-      if (char.net >= HAPPY_FLOOR) {
+      if (char.net > HAPPY_FLOOR) {
         return "POSITIVE";
       } else if (char.net <= SAD_CEILING) {
         return "NEGATIVE";
@@ -198,13 +192,14 @@ class Card extends Component {
           <div style={{ paddingTop: "8px", paddingRight: "20px" }}>
             <Trend
               smooth
-              data={this.state.data}
+              data={this.state.netArr}
               gradient={["#732727", "#407398", "#3A7737"]}
               radius={30}
               strokeWidth={6}
               strokeLinecap={"round"}
             />
-            <h6>Past {this.state.data.length} Tweets</h6>
+            <h6>Tweets since 8:50 EDT</h6>
+            {/*<h6>Past {this.state.netArr.length*30-30} Seconds</h6>*/}
           </div>
         </div>
       </div>

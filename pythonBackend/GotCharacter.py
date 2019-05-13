@@ -14,34 +14,6 @@ def increment_votes(current_value):
 def decrement_votes(current_value):
 	return current_value - 1 if current_value else -1
 
-
-# cerseiLock = threading.Lock()
-# danyLock = threading.Lock()
-# jonLock = threading.Lock()
-# aryaLock = threading.Lock()
-# sansaLock = threading.Lock()
-# branLock = threading.Lock()
-# tyrionLock = threading.Lock()
-# jaimeLock = threading.Lock()
-
-# def getCharLock(name):
-# 	print("name getting lock: " + name)
-# 	if(name == 'cersei'):
-# 		return cerseiLock
-# 	elif(name == 'daenerys'):
-# 		return danyLock
-# 	elif(name == 'jon'):
-# 		return jonLock
-# 	elif(name == 'arya'):
-# 		return aryaLock
-# 	elif(name == 'bran'):
-# 		return branLock
-# 	elif(name == 'tyrionLock'):
-# 		return tyrionLock
-# 	else:
-# 		return jaimeLock
-
-
 class GotCharacter():
 	ref = ""
 	net = 0
@@ -55,12 +27,14 @@ class GotCharacter():
 	keywords = {}
 	decayPosTimerStarted = False
 	decayNegTimerStarted = False
+	netArrTimerStarted = False
 
 	def __init__(self, ref, name, keywords):
 		self.name = name
 		self.ref = ref
 		self.decayPosTimerStarted = False
 		self.decayNegTimerStarted = False
+		self.netArrTimerStarted = False
 		self.tweetQueue = queue.Queue()
 		try:
 			self.net = 	init_value(ref.child('net').get())
@@ -69,7 +43,7 @@ class GotCharacter():
 			self.neutral = init_value(ref.child('neutral').get())
 			self.total = init_value(ref.child('total').get())
 			self.keywords = keywords
-			self.total = init_arr(ref.child('netArr').get())
+			self.netArr = init_arr(ref.child('netArr').get())
 		except Exception as e:
 			print(e)
 			print("GotCharacter init exception")
@@ -97,6 +71,7 @@ class GotCharacter():
 			print(e)
 			print("onPositive exception")
 		self.checkDecay()
+		self.checkArrDataTimer()
 
 	def onNegative(self):
 		self.negative = self.negative+1
@@ -116,6 +91,7 @@ class GotCharacter():
 			print(repr(e))
 			print("onNegative exception")
 		self.checkDecay()
+		self.checkArrDataTimer()
 
 	def onNeutral(self):
 		self.neutral = self.neutral+1
@@ -131,6 +107,7 @@ class GotCharacter():
 			print(e)
 			print("onNeutral exception")
 		self.checkDecay()
+		self.checkArrDataTimer()
 
 	def updateCharacter(self, sentiment):
 		if(sentiment== 'positive'):
@@ -164,7 +141,7 @@ class GotCharacter():
 		# 		return 'neutral'
 		# else:
 		# 		return 'negative'
-		print(pol_score.composite)
+		# print(pol_score.composite)
 		if pol_score.composite > 0:
 			return 'positive'
 		elif pol_score.composite == 0:
@@ -173,18 +150,13 @@ class GotCharacter():
 			return 'negative'
 
 	def checkDecay(self):
-		# val = self.ref.child('net').get()
-		val = 0
+		val = self.ref.child('net').get()
+		# val = 0
 		if(not val is None):
 			try:
-				# with getCharLock(self.name):
 					if(val > 0):
 						self.startPositiveDecayTimer()
-						# self.ref.child('net').transaction(decrement_votes)
-						# self.net = self.net-1
 					elif(val<= -2) :
-						# self.ref.child('net').transaction(increment_votes)
-						# self.net = self.net+1
 						self.startNegativeDecayTimer()
 					else:
 						pass
@@ -196,12 +168,12 @@ class GotCharacter():
 	def startPositiveDecayTimer(self):
 		if(not self.decayPosTimerStarted):
 			self.decayPosTimerStarted = True
-			threading.Timer(10.0, self.decayPos).start()
+			threading.Timer(7.0, self.decayPos).start()
 
 	def startNegativeDecayTimer(self):
 		if(not self.decayNegTimerStarted):
 			self.decayNegTimerStarted = True
-			threading.Timer(10.0, self.decayNeg).start()
+			threading.Timer(7.0, self.decayNeg).start()
 
 	def decayPos(self):
 		val = self.ref.child('net').get()
@@ -226,6 +198,23 @@ class GotCharacter():
 				print('failed to decay from negative')
 		self.decayNegTimerStarted = False
 		self.checkDecay()
+
+	def checkArrDataTimer(self):
+		if(not self.netArrTimerStarted):
+			self.netArrTimerStarted = True
+			threading.Timer(5.0, self.updateNetArr).start()
+
+	def updateNetArr(self):
+		self.netArr.append(self.net)
+		try:
+			self.ref.update({
+				'netArr' : self.netArr
+			})
+		except Exception as e:
+			print(repr(e))
+			print("updateNetArr error")
+		self.netArrTimerStarted = False
+		self.checkArrDataTimer()
 
 	def addToQue(self, tweetText):
 		self.tweetQueue.put(tweetText)

@@ -17,7 +17,8 @@ jorahSet = {'heartsbane', 'ser jorah', 'jorah', 'jorahmormont'}
 davosSet = {'davos', 'davosseaworth', 'onion knight', 'the onion knight', 'onionknight'}
 podrickSet = {'podrick', 'podrickpayne'}
 melisandreSet = {'melisandre', 'the red woman', 'red woman', 'melissandre'}
-bronnSet = {'bronn', 'ser bronn', 'bron', 'bronnoftheblackwater'}
+bronnSet = {'bronn', 'serbronn', 'bron', 'bronnoftheblackwater'}
+euronSet = {'euron', 'eurongreyjoy'}
 # donaldSet = {'trump', 'donaldtrump', 'MAGA', 'President', 'POTUS'}
 
 thronesSet = {'game of thrones', 'gameofthrones', 'thrones', 'a song of ice and fire'}
@@ -25,5 +26,5 @@ thronesSet = {'game of thrones', 'gameofthrones', 'thrones', 'a song of ice and 
 filterSet = cerseiSet|danySet|jonSet|aryaSet|sansaSet|branSet| \
 	tyrionSet|jaimeSet| brienneSet | gendrySet | tormundSet| theonSet | \
 	greywormSet | houndSet | jorahSet | davosSet | podrickSet | melisandreSet | \
-	bronnSet | thronesSet 
+	bronnSet | thronesSet | euronSet
 

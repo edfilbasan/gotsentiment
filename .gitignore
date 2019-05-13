@@ -29,4 +29,5 @@ yarn-error.log*
 /pythonBackend/episode 2 data
 /pythonBackend/afterEpisode2.txt
 /pythonBackend/gotbackup-service-file.json
+/pythonBackend/gotsentiment2-service-file.json
 /pythonBackend/collecteddata/

@@ -25,6 +25,7 @@ let characters = {
   Gendry: ["./gendryHappy.gif", "./gendryNeutral.gif", "./gendrySad.gif"],
   "Grey Worm": ["./grey.gif", "./grey.gif", "./grey.gif"],
   "The Hound": ["./houndHappy.gif", "./houndNeutral.gif", "./houndSad.gif"],
+  Euron: ["./euronHappy.gif", "./euronNeutral.gif", './euronSad.gif'],
   Davos: ["./davosHappy.gif", "./davosNeutral.gif", "./davosSad.gif"],
   Podrick: ["./podrickHappy.gif", "./podrickNeutral.gif", "./podrickSad.gif"],
   Bronn: ["./bronnHappy.gif", "./bronnNeutral.gif", "./bronnSad.gif"]
