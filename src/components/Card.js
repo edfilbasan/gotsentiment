@@ -91,7 +91,6 @@ class Card extends Component {
         if (this.state.sentiment !== prevState) {
           this.reward.rewardMe();
         }
-        console.log(this.state)
       });
     });
   }

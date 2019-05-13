@@ -126,21 +126,21 @@ if __name__ == "__main__":
 	jorahChar, davosChar, podrickChar, melisandreChar, bronnChar, thronesChar, euronChar]
 
 	#init thread to stream tweets and write to file
-	streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})
-	if(not streamThread.is_alive()):
-			streamThread.start()
+	# streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})
+	# if(not streamThread.is_alive()):
+	# 		streamThread.start()
 
 	# init queue for tweets to be processed
 	tweetQueue = queue.Queue()
-	# init tweet analyzer
+	init tweet analyzer
 	ta = TweetAnalyzer(charList)
 
-	# init workers that will analyze tweets found in the queue
+	# # init workers that will analyze tweets found in the queue
 	for i in range(30):
 		worker = threading.Thread(target=analyzeFromQueue, args=(i,tweetQueue,ta))
 		worker.start()
 
-	# Start populating the queue with tweets from the csv file
+	# # Start populating the queue with tweets from the csv file
 	populateThread = threading.Thread(target=initiator, args=(tweetQueue, fileName), kwargs={})
 	if(not populateThread.is_alive()):
 		populateThread.start()

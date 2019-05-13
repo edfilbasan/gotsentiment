@@ -17,7 +17,7 @@ jorahSet = {'heartsbane', 'ser jorah', 'jorah', 'jorahmormont'}
 davosSet = {'davos', 'davosseaworth', 'onion knight', 'the onion knight', 'onionknight'}
 podrickSet = {'podrick', 'podrickpayne'}
 melisandreSet = {'melisandre', 'the red woman', 'red woman', 'melissandre'}
-bronnSet = {'bronn', 'serbronn', 'bron', 'bronnoftheblackwater'}
+bronnSet = {'bronn', 'serbronn', 'bronnoftheblackwater'}
 euronSet = {'euron', 'eurongreyjoy'}
 # donaldSet = {'trump', 'donaldtrump', 'MAGA', 'President', 'POTUS'}
 
