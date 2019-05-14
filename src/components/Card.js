@@ -50,7 +50,8 @@ class Card extends Component {
       positive: 0,
       total: 0,
       netArr: [],
-      sentiment: "NEUTRAL"
+      sentiment: "NEUTRAL",
+      loaded: false
     };
   }
 
@@ -66,6 +67,12 @@ class Card extends Component {
   componentDidMount() {
     this.onDataChange(this.props.name.toLowerCase());
     document.addEventListener("keydown", this.pressF);
+  }
+
+  componentDidUpdate() {
+    if (!this.state.loaded) {
+      this.setState({ loaded: true });
+    }
   }
 
   onDataChange(name) {
@@ -89,7 +96,9 @@ class Card extends Component {
       this.setState(charVals, () => {
         // on callback, compare current sentiment to previous, "reward" if changed
         if (this.state.sentiment !== prevState) {
-          this.reward.rewardMe();
+          if (this.state.loaded) {
+            this.reward.rewardMe();
+          }
         }
       });
     });
