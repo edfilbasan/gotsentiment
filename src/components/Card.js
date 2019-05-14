@@ -85,7 +85,7 @@ class Card extends Component {
       charVals.sentiment = this.getCharData(charVals);
       const prevState = this.state.sentiment;
       this.setState({...this.state, ...charVals}, () => {
-        console.log(this.state)
+        // console.log(this.state)
       });
     });
 
@@ -102,8 +102,10 @@ class Card extends Component {
         this.setState({...this.state, netArr}, ()=>{
           console.log('replace whole array');
         });
-      } else if(lenDiff === 1) {  
+      } else if(lenDiff === 1 || lenDiff===0) {  
         this.state.netArr.push(netArr[netArr.length-1]);
+        console.log('hmm');
+        console.log(this.state.netArr);
         //ensure local copy matches length from python backend
         if(this.state.netArr.length>netArr.length){
           this.state.netArr.shift();
@@ -206,7 +208,7 @@ class Card extends Component {
           />
 
           <h5>TWEETS</h5>
-          <h4>{this.state.total}</h4>
+          <h4> {this.state.total}</h4>
           <div style={{ paddingTop: "8px", paddingRight: "20px" }}>
             <Trend
               smooth
@@ -221,7 +223,7 @@ class Card extends Component {
             {/*<h6>Past {this.state.netArr.length*30-30} Seconds</h6>*/}
 
             <h6 style={{marginTop: "12px"}}>Trend in past </h6>
-            <h6 style={{marginTop: "0px"}}>10 minutes</h6>
+            <h6 style={{marginTop: "0px"}}>10 minutes.</h6>
           </div>
         </div>
       </div>
