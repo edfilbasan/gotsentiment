@@ -19,11 +19,11 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 # Fetch the service account key JSON file
-cred = credentials.Certificate('gotsentiment2-service-file.json')
+cred = credentials.Certificate('gotsentiment3-service-file.json')
 
 # Initialize the app with admin privileges
 default_app = firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://gotsentiment2.firebaseio.com'
+    'databaseURL': 'https://gotsentiment3.firebaseio.com'
 })
 
 #backup firebase info
@@ -132,7 +132,7 @@ if __name__ == "__main__":
 
 	# init queue for tweets to be processed
 	tweetQueue = queue.Queue()
-	init tweet analyzer
+	# init tweet analyzer
 	ta = TweetAnalyzer(charList)
 
 	# # init workers that will analyze tweets found in the queue

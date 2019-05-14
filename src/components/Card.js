@@ -76,23 +76,41 @@ class Card extends Component {
     if (name === "the hound") {
       newName = "thehound";
     }
-    const charRef = Firebase.database().ref("/characters/" + newName);
+    const charRef = Firebase.database().ref("/characters/" + newName + "/data/");
     charRef.on("value", snapshot => {
       let charVals = snapshot.val();
       if (charVals == null) {
         charVals = this.state;
       }
       charVals.sentiment = this.getCharData(charVals);
-      // console.log(`${this.props.name}:`, charVals);
-      // get current state sentiment to compare to updated sentiment
       const prevState = this.state.sentiment;
-      this.setState(charVals, () => {
-        // on callback, compare current sentiment to previous, "reward" if changed
-        if (this.state.sentiment !== prevState) {
-          // this.reward.rewardMe();
-        }
+      this.setState({...this.state, ...charVals}, () => {
         console.log(this.state)
       });
+    });
+
+    const arrRef = Firebase.database().ref("/characters/"+ newName + "/netArr/");
+    arrRef.on("value", snapshot => {
+      let netArr = snapshot.val();
+
+      // to keep whole graph
+      if(netArr == null){
+        netArr = this.state.netArr;
+      }
+      const lenDiff = netArr.length - this.state.netArr.length;
+      if(lenDiff>1){
+        this.setState({...this.state, netArr}, ()=>{
+          console.log('replace whole array');
+        });
+      } else if(lenDiff === 1) {  
+        this.state.netArr.push(netArr[netArr.length-1]);
+        //ensure local copy matches length from python backend
+        if(this.state.netArr.length>netArr.length){
+          this.state.netArr.shift();
+          console.log('the arr');
+          console.log(this.state.netArr);
+        }
+      }
     });
   }
 
@@ -201,7 +219,9 @@ class Card extends Component {
             {/*<h6 style={{ marginTop: "12px" }}>Tweets from </h6>*/}
             {/*<h6 style={{ marginTop: "0px" }}>5/12 20:30 EDT - 5/13 4:00 EDT</h6>*/}
             {/*<h6>Past {this.state.netArr.length*30-30} Seconds</h6>*/}
-            <h6>Tweets since 20:25 EDT</h6>
+
+            <h6 style={{marginTop: "12px"}}>Trend in past </h6>
+            <h6 style={{marginTop: "0px"}}>10 minutes</h6>
           </div>
         </div>
       </div>

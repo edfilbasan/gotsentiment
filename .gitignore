@@ -33,3 +33,5 @@ yarn-error.log*
 /pythonBackend/collecteddata/
 /pythonBackend/#backupmaybe.csv
 /pythonBackend/#testThread10.csv
+/pythonBackend/#testThread10Processed.csv
+/pythonBackend/gotsentiment3-service-file.json

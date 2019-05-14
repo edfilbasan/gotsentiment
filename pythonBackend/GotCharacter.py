@@ -37,11 +37,11 @@ class GotCharacter():
 		self.netArrTimerStarted = False
 		self.tweetQueue = queue.Queue()
 		try:
-			self.net = 	init_value(ref.child('net').get())
-			self.positive = init_value(ref.child('positive').get())
-			self.negative = init_value(ref.child('negative').get())
-			self.neutral = init_value(ref.child('neutral').get())
-			self.total = init_value(ref.child('total').get())
+			self.net = 	init_value(ref.child('data/net').get())
+			self.positive = init_value(ref.child('data/positive').get())
+			self.negative = init_value(ref.child('data/negative').get())
+			self.neutral = init_value(ref.child('data/neutral').get())
+			self.total = init_value(ref.child('data/total').get())
 			self.keywords = keywords
 			self.netArr = init_arr(ref.child('netArr').get())
 		except Exception as e:
@@ -61,9 +61,9 @@ class GotCharacter():
 			# with getCharLock(self.name):
 				# self.ref.child('net').transaction(increment_votes)
 			self.ref.update({
-				'net': self.net,
-				'positive': self.positive,
-				'total': self.total
+				'data/net': self.net,
+				'data/positive': self.positive,
+				'data/total': self.total
 			})
 			# 	self.ref.child('positive').transaction(increment_votes)
 			# 	self.ref.child('total').transaction(increment_votes)
@@ -79,9 +79,9 @@ class GotCharacter():
 		self.total = self.total+1
 		try:
 			self.ref.update({
-				'net': self.net,
-				'negative': self.negative,
-				'total': self.total
+				'data/net': self.net,
+				'data/negative': self.negative,
+				'data/total': self.total
 			})
 			# with getCharLock(self.name):
 				# self.ref.child('net').transaction(decrement_votes)
@@ -98,7 +98,7 @@ class GotCharacter():
 		self.total = self.total+1
 		try:
 			self.ref.update({
-				'total': self.total
+				'data/total': self.total
 			})
 			# with getCharLock(self.name):
 				# self.ref.child('neutral').transaction(increment_votes)
@@ -150,7 +150,7 @@ class GotCharacter():
 			return 'negative'
 
 	def checkDecay(self):
-		val = self.ref.child('net').get()
+		val = self.ref.child('data/net').get()
 		# val = 0
 		if(not val is None):
 			try:
@@ -176,10 +176,10 @@ class GotCharacter():
 			threading.Timer(7.0, self.decayNeg).start()
 
 	def decayPos(self):
-		val = self.ref.child('net').get()
+		val = self.ref.child('data/net').get()
 		if(val > 0):
 			try:
-				self.ref.child('net').transaction(decrement_votes)
+				self.ref.child('data/net').transaction(decrement_votes)
 				self.net = self.net-1
 			except Exception as e:
 				print(e)
@@ -188,10 +188,10 @@ class GotCharacter():
 		self.checkDecay()
 
 	def decayNeg(self):
-		val = self.ref.child('net').get()
+		val = self.ref.child('data/net').get()
 		if(val < -5):
 			try:
-				self.ref.child('net').transaction(increment_votes)
+				self.ref.child('data/net').transaction(increment_votes)
 				self.net = self.net+1
 			except Exception as e:
 				print(e)
@@ -206,6 +206,8 @@ class GotCharacter():
 
 	def updateNetArr(self):
 		self.netArr.append(self.net)
+		if(len(self.netArr) >= 121):
+			self.netArr.pop(0)
 		try:
 			self.ref.update({
 				'netArr' : self.netArr
