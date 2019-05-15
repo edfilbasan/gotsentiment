@@ -19,12 +19,16 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 # Fetch the service account key JSON file
+
+# REMEMBER
 # Change back to 'gotsentiment-service-file.json'
 cred = credentials.Certificate('gotsentiment-service-file.json')
 
+# REMEMBER
+# Change back to https://gotsentiment3.firebaseio.com'
 # Initialize the app with admin privileges
 default_app = firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://gotsentiment3.firebaseio.com'
+    'databaseURL': 'https://gotsentiment.firebaseio.com'
 })
 
 #backup firebase info
