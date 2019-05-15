@@ -220,7 +220,7 @@ class Card extends Component {
             {/*<h6>Past {this.state.netArr.length*30-30} Seconds</h6>*/}
 
             <h6 style={{marginTop: "12px"}}>Trend in past </h6>
-            <h6 style={{marginTop: "0px"}}>10 minutes.</h6>
+            <h6 style={{marginTop: "0px"}}>30 minutes.</h6>
           </div>
         </div>
       </div>
