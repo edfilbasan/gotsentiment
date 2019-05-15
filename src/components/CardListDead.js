@@ -12,6 +12,10 @@ const list = {
 
 let characters = {
   Theon: ["./theonHappy.gif", "./theonNeutral.gif", "./theonSad.gif"],
+  Cersei: ["./cerseiHappy.gif", "./cerseiNeutral.gif", "./cerseiSad.gif"],
+  Jaime: ["./jaimeHappy.gif", "./jaimeNeutral.gif", "./jaimeSad.gif"],
+  "The Hound": ["./houndHappy.gif", "./houndNeutral.gif", "./houndSad.gif"],
+  Euron: ["./euronHappy.gif", "./euronNeutral.gif", "./euronSad.gif"],
   Jorah: ["./jorahHappy.gif", "./jorahNeutral.gif", "./jorahSad.gif"],
   Melisandre: [
     "./melisandreHappy.gif",
