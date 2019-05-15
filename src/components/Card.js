@@ -96,21 +96,18 @@ class Card extends Component {
       // to keep whole graph
       if(netArr == null){
         netArr = this.state.netArr;
-      }
-      const lenDiff = netArr.length - this.state.netArr.length;
-      if(lenDiff>1){
-        this.setState({...this.state, netArr}, ()=>{
-          console.log('replace whole array');
-        });
-      } else if(lenDiff === 1 || lenDiff===0) {  
-        this.state.netArr.push(netArr[netArr.length-1]);
-        console.log('hmm');
-        console.log(this.state.netArr);
-        //ensure local copy matches length from python backend
-        if(this.state.netArr.length>netArr.length){
-          this.state.netArr.shift();
-          console.log('the arr');
-          console.log(this.state.netArr);
+      } 
+      if(netArr.length > 0){
+        const lenDiff = netArr.length - this.state.netArr.length;
+        if(lenDiff>1){
+          this.setState({...this.state, netArr}, ()=>{
+          });
+        } else if(lenDiff === 1 || lenDiff===0) {  
+          this.state.netArr.push(netArr[netArr.length-1]);
+          //ensure local copy matches length from python backend
+          if(this.state.netArr.length>netArr.length){
+            this.state.netArr.shift();
+          }
         }
       }
     });

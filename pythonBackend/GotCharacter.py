@@ -206,7 +206,7 @@ class GotCharacter():
 
 	def updateNetArr(self):
 		self.netArr.append(self.net)
-		if(len(self.netArr) >= 121):
+		if(len(self.netArr) >= 361):
 			self.netArr.pop(0)
 		try:
 			self.ref.update({

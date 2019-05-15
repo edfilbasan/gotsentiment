@@ -126,9 +126,9 @@ if __name__ == "__main__":
 	jorahChar, davosChar, podrickChar, melisandreChar, bronnChar, thronesChar, euronChar]
 
 	#init thread to stream tweets and write to file
-	# streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})
-	# if(not streamThread.is_alive()):
-	# 		streamThread.start()
+	streamThread = threading.Thread(target=initTweetStreaming, args=(), kwargs={})
+	if(not streamThread.is_alive()):
+			streamThread.start()
 
 	# init queue for tweets to be processed
 	tweetQueue = queue.Queue()
