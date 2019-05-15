@@ -83,7 +83,9 @@ class Card extends Component {
     if (name === "the hound") {
       newName = "thehound";
     }
-    const charRef = Firebase.database().ref("/characters/" + newName + "/data/");
+    const charRef = Firebase.database().ref(
+      "/characters/" + newName + "/data/"
+    );
     charRef.on("value", snapshot => {
       let charVals = snapshot.val();
       if (charVals == null) {
@@ -101,23 +103,24 @@ class Card extends Component {
       });
     });
 
-    const arrRef = Firebase.database().ref("/characters/"+ newName + "/netArr/");
+    const arrRef = Firebase.database().ref(
+      "/characters/" + newName + "/netArr/"
+    );
     arrRef.on("value", snapshot => {
       let netArr = snapshot.val();
 
       // to keep whole graph
-      if(netArr == null){
+      if (netArr == null) {
         netArr = this.state.netArr;
-      } 
-      if(netArr.length > 0){
+      }
+      if (netArr.length > 0) {
         const lenDiff = netArr.length - this.state.netArr.length;
-        if(lenDiff>1){
-          this.setState({...this.state, netArr}, ()=>{
-          });
-        } else if(lenDiff === 1 || lenDiff===0) {  
-          this.state.netArr.push(netArr[netArr.length-1]);
+        if (lenDiff > 1) {
+          this.setState({ ...this.state, netArr }, () => {});
+        } else if (lenDiff === 1 || lenDiff === 0) {
+          this.state.netArr.push(netArr[netArr.length - 1]);
           //ensure local copy matches length from python backend
-          if(this.state.netArr.length>netArr.length){
+          if (this.state.netArr.length > netArr.length) {
             this.state.netArr.shift();
           }
         }
@@ -187,7 +190,7 @@ class Card extends Component {
       <div
         style={container}
         className="grow"
-        // onClick={() => this.reward.rewardMe()}
+        onClick={() => this.reward.rewardMe()}
       >
         <div style={imageContainer}>
           <img alt={sentimentImg} src={sentimentImg} style={images} />
@@ -231,8 +234,7 @@ class Card extends Component {
             {/*<h6 style={{ marginTop: "0px" }}>5/12 20:30 EDT - 5/13 4:00 EDT</h6>*/}
             {/*<h6>Past {this.state.netArr.length*30-30} Seconds</h6>*/}
 
-            <h6 style={{marginTop: "12px"}}>Trend in past </h6>
-            <h6 style={{marginTop: "0px"}}>30 minutes.</h6>
+            <h6 style={{ marginTop: "12px" }}>Tweets from past 30 minutes</h6>
           </div>
         </div>
       </div>
