@@ -7,4 +7,4 @@ We went all out with the memes. A confetti of emoji’s sprang out whenever the 
 
 I designed the site in Sketch and built the front-end. I also found a ton of funny gifs.
 
-Live site | https://edfilbasan.github.io/gotsentimentg
+Live site | https://edfilbasan.github.io/gotsentiment
