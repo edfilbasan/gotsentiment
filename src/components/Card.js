@@ -71,7 +71,7 @@ class Card extends Component {
 
   componentDidUpdate() {
     if (!this.state.loaded) {
-      this.setState({ loaded: true });
+      return this.setState({ loaded: true });
     }
   }
 
