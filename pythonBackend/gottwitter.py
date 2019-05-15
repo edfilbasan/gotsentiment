@@ -132,7 +132,11 @@ if __name__ == "__main__":
 
 	# init queue for tweets to be processed
 	tweetQueue = queue.Queue()
+<<<<<<< HEAD
 	# init tweet analyzer
+=======
+	#init tweet analyzer
+>>>>>>> 904f4c731a692eb5a92ecc8810e39d9bf6a80359
 	ta = TweetAnalyzer(charList)
 
 	# # init workers that will analyze tweets found in the queue
