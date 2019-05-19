@@ -7,11 +7,13 @@ import Footer from "./components/Footer.js";
 import { firebase_config } from "./utils/apiKey.js";
 import { tachyons } from "tachyons";
 import Firebase from "firebase";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 
 function initializeReactGA() {
-  ReactGA.initialize('UA-140459085-1');
+  ReactGA.initialize("UA-140459085-1");
+  ReactGA.pageview("/homepage");
 }
+
 initializeReactGA();
 
 Firebase.initializeApp(firebase_config);
