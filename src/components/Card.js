@@ -239,7 +239,7 @@ class Card extends Component {
             {/*<h6 style={{ marginTop: "0px" }}>5/12 20:30 EDT - 5/13 4:00 EDT</h6>*/}
             {/*<h6>Past {this.state.netArr.length*30-30} Seconds</h6>*/}
 
-            <h6 style={{ marginTop: "12px" }}>Tweets since 16:30 PST</h6>
+            <h6 style={{ marginTop: "12px" }}>Tweets since 16:30 PDT</h6>
           </div>
         </div>
       </div>
