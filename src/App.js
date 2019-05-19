@@ -17,7 +17,7 @@ class GotSentiment extends Component {
         <Header />
         <CardList />
         <h1 style={{ textAlign: "center", marginBottom: "0px" }}>
-          PRESS{" "}
+          💀 PRESS{" "}
           <span
             style={{
               fontWeight: "1000",
@@ -26,7 +26,7 @@ class GotSentiment extends Component {
           >
             F
           </span>{" "}
-          TO PAY RESPECTS
+          TO PAY RESPECTS 💀
         </h1>
         <CardListDead />
         <Footer />

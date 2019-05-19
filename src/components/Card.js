@@ -55,6 +55,14 @@ class Card extends Component {
     };
   }
 
+  after3h = () => {
+    let date = new Date();
+    let utcDate = new Date(date.toUTCString());
+    utcDate.setHours(utcDate.getHours() - 12);
+    let usDate = new Date(utcDate);
+    console.log(`${usDate.getHours()}` + ":" + `${usDate.getMinutes()}`);
+  };
+
   pressF = e => {
     const keyCode = e.keyCode;
     if (keyCode === 70) {
@@ -186,6 +194,7 @@ class Card extends Component {
     const sentimentImg = this.props.images[
       this.getImageIdx(this.state.sentiment)
     ];
+    console.log(this.after3h());
     return (
       <div
         style={container}
@@ -234,7 +243,7 @@ class Card extends Component {
             {/*<h6 style={{ marginTop: "0px" }}>5/12 20:30 EDT - 5/13 4:00 EDT</h6>*/}
             {/*<h6>Past {this.state.netArr.length*30-30} Seconds</h6>*/}
 
-            <h6 style={{ marginTop: "12px" }}>Tweets from past 30 minutes</h6>
+            <h6 style={{ marginTop: "12px" }}>Tweets since 16:30 PST</h6>
           </div>
         </div>
       </div>
