@@ -191,7 +191,6 @@ class Card extends Component {
     const sentimentImg = this.props.images[
       this.getImageIdx(this.state.sentiment)
     ];
-    console.log(this.after3h());
     return (
       <div
         style={container}
