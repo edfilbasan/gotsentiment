@@ -55,13 +55,10 @@ class Card extends Component {
     };
   }
 
-  after3h = () => {
-    let date = new Date();
-    let utcDate = new Date(date.toUTCString());
-    utcDate.setHours(utcDate.getHours() - 12);
-    let usDate = new Date(utcDate);
-    console.log(`${usDate.getHours()}` + ":" + `${usDate.getMinutes()}`);
-  };
+  // after3h = () => {
+  //   let date = new Date();
+  //   return date.toLocaleTimeString();
+  // };
 
   pressF = e => {
     const keyCode = e.keyCode;
