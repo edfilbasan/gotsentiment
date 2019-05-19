@@ -21,11 +21,6 @@ class GotSentiment extends Component {
     return (
       <div>
         <Header />
-        <h3
-          style={{ textAlign: "center", color: "#732727", marginTop: "20px" }}
-        >
-        
-        </h3>
         <CardList />
         <h1 style={{ textAlign: "center", marginBottom: "0px" }}>
           PRESS{" "}
@@ -48,3 +43,10 @@ class GotSentiment extends Component {
 }
 
 export default GotSentiment;
+
+// ONLINE STATUS TEXT. ADD WHENVER.
+// <h3
+// style={{ textAlign: "center", color: "#732727", marginTop: "20px" }}
+// >
+
+// </h3>
