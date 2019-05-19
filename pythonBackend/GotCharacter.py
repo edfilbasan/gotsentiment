@@ -131,17 +131,6 @@ class GotCharacter():
 		# print("THE TWEET")
 		# print(tweet)
 		pol_score = sia.polarity_scores(tweet)
-		# print("pol score")
-		# print(pol_score)
-		# print(analysis.sentiment.polarity)
-		# set sentiment
-		# if analysis.sentiment.polarity > 0:
-		# 		return 'positive'
-		# elif analysis.sentiment.polarity == 0:
-		# 		return 'neutral'
-		# else:
-		# 		return 'negative'
-		# print(pol_score.composite)
 		if pol_score.composite > 0:
 			return 'positive'
 		elif pol_score.composite == 0:
@@ -202,11 +191,11 @@ class GotCharacter():
 	def checkArrDataTimer(self):
 		if(not self.netArrTimerStarted):
 			self.netArrTimerStarted = True
-			threading.Timer(5.0, self.updateNetArr).start()
+			threading.Timer(10.0, self.updateNetArr).start()
 
 	def updateNetArr(self):
 		self.netArr.append(self.net)
-		if(len(self.netArr) >= 361):
+		if(len(self.netArr) >= 1080):
 			self.netArr.pop(0)
 		try:
 			self.ref.update({

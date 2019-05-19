@@ -35,3 +35,4 @@ yarn-error.log*
 /pythonBackend/#testThread10.csv
 /pythonBackend/#testThread10Processed.csv
 /pythonBackend/gotsentiment3-service-file.json
+/pythonBackend/gotsentiment4-service-file.json
