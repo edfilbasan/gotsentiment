@@ -9,6 +9,7 @@
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.5.7",
     "react-rewards": "^1.0.7",
     "react-scripts": "2.1.8",
     "react-trend": "^1.2.4",

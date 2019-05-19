@@ -17,7 +17,11 @@ let characters = {
     "./melisandreHappy.gif",
     "./melisandreNeutral.gif",
     "./melisandreSad.gif"
-  ]
+  ],
+  Cersei: ["./cerseiHappy.gif", "./cerseiNeutral.gif", "./cerseiSad.gif"],
+  Jaime: ["./jaimeHappy.gif", "./jaimeNeutral.gif", "./jaimeSad.gif"],
+  Euron: ["./euronHappy.gif", "./euronNeutral.gif", "./euronSad.gif"],
+  "The Hound": ["./houndHappy.gif", "./houndNeutral.gif", "./houndSad.gif"],
 };
 
 class CardListDead extends Component {
