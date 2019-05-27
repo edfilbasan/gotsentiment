@@ -25,7 +25,6 @@ let characters = {
   Davos: ["./davosHappy.gif", "./davosNeutral.gif", "./davosSad.gif"],
   Podrick: ["./podrickHappy.gif", "./podrickNeutral.gif", "./podrickSad.gif"],
   Bronn: ["./bronnHappy.gif", "./bronnNeutral.gif", "./bronnSad.gif"]
-  // Donald: ["./donaldHappy.gif", "./donaldNeutral.gif", "./donaldSad.gif"]
 };
 
 class CardList extends Component {
