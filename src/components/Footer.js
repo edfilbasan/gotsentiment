@@ -26,8 +26,8 @@ const Footer = () => {
   return (
     <div style={container}>
       <p style={headerSub}>
-        Made by <a href="https://edfilbasan.github.io/work">Lord Edfil</a> &amp;{" "}
-        <a href="https://github.com/Gnuck">King Nick </a>
+        Created by <a href="https://edfilbasan.github.io/work">Lord Edfil</a>{" "}
+        &amp; <a href="https://github.com/Gnuck">King Nick </a>
       </p>
     </div>
   );

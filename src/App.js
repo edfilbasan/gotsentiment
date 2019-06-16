@@ -45,10 +45,3 @@ class GotSentiment extends Component {
 }
 
 export default GotSentiment;
-
-// ONLINE STATUS TEXT. ADD WHENVER.
-// <h3
-// style={{ textAlign: "center", color: "#732727", marginTop: "20px" }}
-// >
-
-// </h3>
