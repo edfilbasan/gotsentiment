@@ -230,7 +230,7 @@ class Card extends Component {
               strokeWidth={6}
               strokeLinecap={"round"}
             />
-            {/*Use these styles for whe nwe are live*/}}
+            {/*Use these styles for whe nwe are live*/}
             {/*<h6 style={{ marginTop: "12px" }}>Tweets from </h6>*/}
             {/*<h6 style={{ marginTop: "0px" }}>5/12 20:30 EDT - 5/13 4:00 EDT</h6>*/}
             {/*<h6>Past {this.state.netArr.length*30-30} Seconds</h6>*/}
